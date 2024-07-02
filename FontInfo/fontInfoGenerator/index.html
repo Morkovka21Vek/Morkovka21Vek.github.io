@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="../../imgs/GITHUB2___IMG_20240303_161825_480.jpg">
+        <title>FontsInfoGenerator</title>
+        <meta property="og:title" content="Morkovka21Vek" />
+        <meta property="og:description" content="FontsInfoGenerator" />
+        <meta property="og:image" content="https://morkovka21vek.github.io/imgs/GITHUB___IMG_20240303_161825_480.png" />
+        <meta property="og:url" content="https://morkovka21vek.github.io/FontsInfo/FontsInfoGenerator" />
+    </head>
+    <body>
+        <h1>Generate font data</h1>
+        <input type="text", placeholder="originalFontLink" id="originalFontLink" class="text"><br>
+        <input type="text", placeholder="autor" id="autor" class="text"><br>
+        <input type="text", placeholder="newFontLink" id="newFontLink" class="text"><br>
+        <input type="button", value="Generate" id="button" onclick="generate();"><br>
+        <!-- <p class="out" id="out">123</p> -->
+        <input value="" class="out" id="out" readonly title="out">
+        <button id="copyTextBut" title="copy"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="white" class="copySvg" width="30" height="35"><path d="M216 32H88a8 8 0 0 0-8 8v40H40a8 8 0 0 0-8 8v128a8 8 0 0 0 8 8h128a8 8 0 0 0 8-8v-40h40a8 8 0 0 0 8-8V40a8 8 0 0 0-8-8Zm-56 176H48V96h112Zm48-48h-32V88a8 8 0 0 0-8-8H96V48h112Z"></path></svg></button>
+        <!-- <p class="out" id="out">123</p> -->
+        <style>
+            #copyTextBut {
+                position: absolute;
+                background-color: black;
+                width: 35px;
+                height: 40px;
+                margin-top: 5px;
+                padding-left: 0;
+            }
+            h1 {
+                text-align: center;
+                color: white;
+            }
+            body {
+                background-color: #292929;
+                color: white;
+                text-align: center;
+            }
+            .out {
+                /* text-align: left; */
+                /* margin-top: 5px; */
+                width: 300px;
+                height: 40px;
+                /* margin-left: 12px; */
+                /* color: #12dd12; */
+            }
+            .text {
+                border-radius: 15px;
+                width: 300px;
+                height: 40px;
+                margin-top: 2px;
+                /* left: 42%; */
+                /* position: absolute; */
+            }
+            #button {
+                width: 300px;
+                height: 40px;
+                color:white;
+                background:linear-gradient(#01a9e1, #5bc4bc);
+                border-width:0px;
+                border-radius:20px;
+                margin-top: 7px;
+                padding:5px;
+                font-weight: bold;
+                cursor:pointer;
+            }
+        </style>
+        <script language="javascript" type="text/javascript">
+            const originalFontLink = document.getElementById("originalFontLink");
+            const autor = document.getElementById("autor");
+            const newFontLink = document.getElementById("newFontLink");
+            const out = document.getElementById("out");
+            const copyTextBut = document.getElementById("copyTextBut");
+            function generate() {
+                // let outLink = new URL({"path":"https://morkovka21vek.github.io/FontInfo", "params":{"param1":inpText}});
+                let outLink = new URL("https://morkovka21vek.github.io/FontInfo");
+                outLink.searchParams.set('origL', originalFontLink.value);
+                outLink.searchParams.set('a', autor.value);
+                outLink.searchParams.set('newL', newFontLink.value);
+                console.log(outLink.href)
+                // out.innerHTML = outLink.href;
+                out.setAttribute("value", outLink.href)
+            }
+            copyTextBut.onclick = function() {
+                out.select();    
+                document.execCommand("copy");
+            }
+        </script>
+    </body>
+</html>
