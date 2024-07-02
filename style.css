@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  header {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  h1 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  h2 {
+    margin-top: 20px;
+  }
+  
+  #projects {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #projects li {
+    margin-bottom: 10px;
+  }
+  
+  #projects a {
+    text-decoration: none;
+    color: #337ab7;
+  }
+  
+  #projects a:hover {
+    color: #23527c;
+  }
+
+  #images {
+    flex-basis: 40%; /* adjust the width of the images container */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+  }
+  
+  #images img {
+    width: 30%; /* adjust the width of each image */
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }

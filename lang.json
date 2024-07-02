@@ -1,0 +1,16 @@
+{
+    "en": {
+      "title": "Morkovka21Vek's homepage",
+      "name": "Morkovka21Vek",
+      "description": "Software developer and enthusiast",
+      "projects_title": "Projects",
+      "github_username": "Morkovka21Vek"
+    },
+    "ru": {
+      "title": "Домашняя страница Morkovka21Vek",
+      "name": "Morkovka21Vek",
+      "description": "Разработчик программного обеспечения и энтузиаст",
+      "projects_title": "Проекты",
+      "github_username": "Morkovka21Vek"
+    }
+  }
