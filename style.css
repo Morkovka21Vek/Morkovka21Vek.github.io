@@ -1,76 +1,228 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
+	margin: 0;
+	padding: 0;
+	background-color: #292929;
+	/* font-family: "Font Awesome 6 Brands"; */
 }
 
-body.light-theme {
-  background-color: #ffffff;
-  color: #000000;
+.startScreen h5{
+	color: green;
+	top: 0;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	font-size: 200%;
+	animation: renderH5 2.5s ease;
 }
 
-body.dark-theme {
-  background-color: #121212;
-  color: #ffffff;
-}
-  
-header {
-  background-color: #f0f0f0;
-  border-bottom: 1px solid #ddd;
-  text-align: center;
-}
-  
-h1 {
-  color: #333;
-  margin-bottom: 10px;
-}
-  
-.block {
-    justify-content: center; /* Это свойство выравнивает блоки к концу контейнера (вправо) */
-    margin: 20px;
+.startScreen h1{
+	color: white;
+	top: 70px;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	font-size: 200%;
+	animation: renderH1 2.5s ease;
 }
 
-.buttonLeftList{
-    height: 50px;
-    width: 200px;
-    border: 2px solid black;
-    margin-top: 2px;
-    background-color: rgba(0, 0, 0, 0);
-    border-radius: 10px;
+@keyframes renderH1 {
+	30% {
+		top: 50%;
+	}
+	60% {
+		top: 70px;
+	}
+}
+@keyframes renderH5 {
+	35% {
+		top: 43%;
+	}
+	60% {
+		top: 0;
+	}
 }
 
-.conteiner {
-  /* max-width: 1000px; */ /* Максимальная ширина контейнера */
-   /*display: flex;*/  /* Используем flexbox для выравнивания внутренних блоков */
-  justify-content: left; /* Это свойство выравнивает блоки к концу контейнера (вправо) */
-  margin: 20px;
-}
-.leftList{
-  border: 2px solid black;
-  position: fixed;
-  /*left: 0;
-  top: 120px;
-  bottom: 0;
-  overflow-y:scroll;*/
-}
-
-
-.rightSide{
-  max-width: 1000px; /* Максимальная ширина контейнера */
-  display: flex; /* Используем flexbox для выравнивания внутренних блоков */
-  margin: 20px;
-  justify-content: flex-end; /* Это свойство выравнивает блоки к концу контейнера (вправо) */
-}
-.images {
-  flex-basis: 40%; /* adjust the width of the images container */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 100px;
+@keyframes renderIcons {
+	0% {
+		top: 50%;
+		opacity: 0;
+	}
+	30% {
+		top: 50%;
+		opacity: 0;
+	}
+	60% {
+		top: 50%;
+		opacity: 1;
+	}
+	100% {
+		top: 150px;
+		opacity: 1;
+	}
 }
 
-.images img {
-  width: 30%; /* adjust the width of each image */
-  margin: 10px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+.links {
+	top: 150px;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	animation: renderIcons 3s ease;
 }
+
+.links i {
+	color: white;
+	font-size: 170%;
+	
+}
+.links i:hover {
+	color: rgb(190, 190, 190);
+	font-size: 175%;
+}
+
+.console {
+	border: 5px solid #24292e;
+	border-radius: 27px;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	width: 800px;
+	height: 450px;
+	animation: renderConsole 3s ease;
+	background-color: black;
+	/* overflow-y:scroll; */
+	/* overflow-x: scroll; */
+}
+
+.crown {
+	background-color: rgb(24, 24, 24);
+	border-top-left-radius: 23px;
+	border-top-right-radius: 23px;
+	top: 0;
+	/* width: auto; */
+	left: 0;
+	right: 0;
+	height: 50px;
+}
+
+@keyframes renderConsole {
+	50% {
+		top: -100%;
+	}
+	100% {
+		top: 50%;
+	}
+}
+
+#red {
+	position: fixed;
+	background-color: #ff5f5a;
+	border-radius: 20px;
+	top: 20px;
+	left: 18px;
+	width: 15px;
+	height: 15px;
+}
+
+#yellow {
+	position: fixed;
+	background-color: #ffbe2e;
+	border-radius: 20px;
+	top: 20px;
+	left: 36px;
+	width: 15px;
+	height: 15px;
+}
+
+#green {
+	position: fixed;
+	background-color: #2aca44;
+	border-radius: 20px;
+	top: 20px;
+	left: 54px;
+	width: 15px;
+	height: 15px;
+}
+
+.consoleText {
+	margin-left: 10px;
+	margin-top: 7px;
+}
+
+.consoleText p {
+	color: #12dd12;
+	/* font-family: monospace; */
+  	overflow: hidden;
+	white-space: nowrap;  
+	/* margin: 0 auto;   */
+	letter-spacing: .15em;
+	/* animation: typing 3.5s steps(30, end); */
+	animation: typing 8.5s ease;
+}
+.consoleText p:nth-child(1) {
+	color: #12dd12;
+  	overflow: hidden;
+	letter-spacing: .15em;
+	width: 100%;
+	white-space: nowrap;
+	animation: typing 1s ease;
+}
+.consoleText p:nth-child(2) {
+	color: #12dd12;
+  	overflow: hidden;
+	letter-spacing: .15em;
+	width: 100%;
+	white-space: nowrap;
+	animation: typing 1s ease;
+}
+.consoleText p:nth-child(3) {
+	color: #12dd12;
+  	overflow: hidden;
+	letter-spacing: .15em;
+	animation: typing 5.5s ease;
+	white-space: nowrap;
+}
+.consoleText p:nth-child(4) {
+	color: #12dd12;
+  	overflow: hidden;
+	letter-spacing: .15em;
+	animation: typing 6.5s ease;
+	white-space: nowrap;
+}
+
+@keyframes typing {
+	/* from { width: 0 }
+	to { width: 100% } */
+	60% { width: 0% }
+	100% { width: 100%}
+  }
+/* .solid {
+	width: 100%;
+	height: 250px;
+	background-color: #2d913a;
+	border-bottom: 15px solid #000;
+
+	top: 0;
+	position: absolute;
+	transition: top 1s ease;
+
+	animation: render 1s ease;
+}
+
+.solid:hover {
+	top: 0;
+}
+
+.solid p {
+	text-align: center;
+	margin: 100px;
+}
+
+@keyframes render {
+	0% {
+		top: -250px;
+	}
+	100% {
+		top: 0;
+	}
+} */
