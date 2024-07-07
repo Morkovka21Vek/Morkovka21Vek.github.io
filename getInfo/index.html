@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="../imgs/GITHUB2___IMG_20240303_161825_480.jpg">
+        <title>getInfo</title>
+    </head>
+    <body>
+        <h1>View statistics on username</h1>
+        <input type="text", placeholder="username" id="input">
+        <input id="button" type="button" value="Find" onclick="doFunction();" />
+        <p></p>
+        <a href="" id="linkGithub">Github Profile</a>
+
+        <style>
+            h1 {
+                text-align: center;
+                color: white;
+            }
+            body {
+                background-color: #292929;
+                color: white;
+            }
+            #linkGithub {
+                color: rgb(140, 14, 212);
+                font-size: 25px;
+            }
+        </style>
+        <script language="javascript" type="text/javascript">
+            function doFunction() {
+            var scrt_var = document.getElementById('input').value;
+            var strLink1 = "https://github-readme-stats.vercel.app/api/top-langs/?username=" + scrt_var;
+            var strLink2 = "https://github-profile-trophy.vercel.app/?username=" + scrt_var;
+            var strLink3 = "https://github-readme-streak-stats.herokuapp.com/?user=" + scrt_var;
+            var strLink4 = "https://github-readme-stats.vercel.app/api?username=" + scrt_var;
+            var strLink5 = "https://github-readme-activity-graph.vercel.app/graph?username=" + scrt_var;
+            var strLinkGithub = "https://github.com/" + scrt_var;
+            document.getElementById("img1").setAttribute("src",strLink1);
+            document.getElementById("img2").setAttribute("src",strLink2);
+            document.getElementById("img3").setAttribute("src",strLink3);
+            document.getElementById("img4").setAttribute("src",strLink4);
+            document.getElementById("img5").setAttribute("src",strLink5);
+            document.getElementById("linkGithub").setAttribute("href",strLinkGithub);
+        }
+        </script>
+
+        <div class="images">
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=" alt="Top Langs" id="img1"><br>
+            <img src="https://github-profile-trophy.vercel.app/?username=" alt="trophy" id="img2"><br>
+            <img src="https://github-readme-streak-stats.herokuapp.com/?user=" alt="GitHub Streak" id="img3"><br>
+            <img src="https://github-readme-stats.vercel.app/api?username=" alt="Stats" id="img4"><br>
+            <img src="https://github-readme-activity-graph.vercel.app/graph?username=" alt="Ashutosh's github activity graph" id="img5"><br>
+        </div>
+    </body>
+</html>
