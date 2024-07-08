@@ -24,6 +24,10 @@ body {
 	font-size: 200%;
 	animation: renderH1 2.5s ease;
 }
+.startScreen {
+	padding-bottom: 20px;
+	height: calc(100vh - 120px);
+}
 
 @keyframes renderH1 {
 	30% {
@@ -254,33 +258,56 @@ body {
 		overflow: visible;
 	}
   }
-/* .solid {
-	width: 100%;
-	height: 250px;
-	background-color: #2d913a;
-	border-bottom: 15px solid #000;
 
-	top: 0;
-	position: absolute;
-	transition: top 1s ease;
-
-	animation: render 1s ease;
+.selection-progects {
+	bottom: 40px;
 }
 
-.solid:hover {
-	top: 0;
-}
-
-.solid p {
+.selection-progects h2 {
+	font-size: 40px;
+	color: #74d274;
 	text-align: center;
-	margin: 100px;
+	padding-bottom: 100px;
 }
 
-@keyframes render {
-	0% {
-		top: -250px;
-	}
-	100% {
-		top: 0;
-	}
-} */
+.progects-block {
+	background-color: #252525;
+	border: 2px solid rgb(206, 206, 206);
+	border-radius: 20px;
+	/* border-width: 5px; */
+    /* padding: 20px; */
+	width: calc(100vw - 100px);
+    margin-bottom: 50px;
+    opacity: 0;
+    transform: translate(40px, 50px);
+    transition: transform 0.5s, opacity 0.5s;
+}
+.progects-block h3 {
+	/* top: 500; */
+	/* left: 20px; */
+	width: calc((100vw - 100px)/2);
+	color: white;
+	font-size: 43px;
+	transform: translate(50px, 20px)
+}
+.progects-block img {
+	/* top: 0; */
+	/* bottom: 0; */
+	/* right: 0; */
+	transform: translate(calc(100vw - 650px), -80px);
+	/* width: 300px; */
+	height: 240px;
+	border-radius: 10px;
+	position:relative;
+}
+
+.progects-last-commit {
+	color: white;
+	font-size: 30px;
+	transform: translate(50px, 40px)
+}
+.progects-created {
+	color: white;
+	font-size: 30px;
+	transform: translate(50px, 40px)
+}
