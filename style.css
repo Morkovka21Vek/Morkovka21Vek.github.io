@@ -5,6 +5,14 @@ body {
 	/* font-family: "Font Awesome 6 Brands"; */
 }
 
+body::-webkit-scrollbar {
+	background-color: rgb(14, 14, 14);
+}
+body::-webkit-scrollbar-thumb{
+	border-radius: 8px;
+	background-color: rgb(87, 87, 87);
+}
+
 .startScreen h5{
 	color: green;
 	top: 0;
@@ -160,6 +168,7 @@ body {
 } */
 
 .consoleText {
+	/* font-family: monospace; */
 	margin-left: 10px;
 	margin-top: 7px;
 	margin-right: 5px;
@@ -277,37 +286,70 @@ body {
 	/* border-width: 5px; */
     /* padding: 20px; */
 	width: calc(100vw - 100px);
+	/* width: max-content; */
     margin-bottom: 50px;
     opacity: 0;
-    transform: translate(40px, 50px);
+    transform: translateY(50px);
     transition: transform 0.5s, opacity 0.5s;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-left: auto;
+    margin-right: auto;
 }
+
+@media (hover: hover) {
+    .progects-block:hover {
+        /* width: calc(100vw - 80px); */
+		border: 2px solid rgb(236, 236, 236);
+		background-color: #242424;
+    }
+	.progects-block img:hover {
+        /* width: calc(100vw - 80px); */
+		border-radius: 18px;
+		/* height: 242px; */
+		transform: translateY(-2px);
+    }
+}
+
 .progects-block h3 {
 	/* top: 500; */
 	/* left: 20px; */
+	text-align: center;
 	width: calc((100vw - 100px)/2);
 	color: white;
 	font-size: 43px;
-	transform: translate(50px, 20px)
+	/* transform: translate(50px, 20px) */
 }
 .progects-block img {
 	/* top: 0; */
 	/* bottom: 0; */
 	/* right: 0; */
-	transform: translate(calc(100vw - 650px), -80px);
+	/* transform: translate(calc(100vw - 650px), -80px); */
 	/* width: 300px; */
-	height: 240px;
-	border-radius: 10px;
-	position:relative;
+	/* height: 240px; */
+	max-width: 500px;
+	width: calc(100vw - 100px);
+	/* min-width: 400px; */
+	/* height: max-content; */
+
+	border-radius: 20px;
+	/* position:relative; */
+	/* align-self: flex-end; */
 }
 
 .progects-last-commit {
 	color: white;
 	font-size: 30px;
-	transform: translate(50px, 40px)
+	text-align: center;
+	width: calc((100vw - 100px)/2);
+	/* transform: translate(50px, 40px) */
 }
 .progects-created {
 	color: white;
 	font-size: 30px;
-	transform: translate(50px, 40px)
+	text-align: center;
+	width: calc((100vw - 100px)/2);
+	/* transform: translate(50px, 40px) */
 }
