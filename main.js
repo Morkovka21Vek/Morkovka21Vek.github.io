@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let imgs = document.querySelectorAll('.progects-img');
     var date = new Date();
     imgs.forEach(img => {
-        var Img_Link = img.src.format(String(date.getFullYear())+date.getMonth()+date.getDate()+date.getHours()+date.getMinutes())
+        var Img_Link = img.src.format(String(date.getFullYear())+date.getMonth()+date.getDate()+date.getHours())
         // alert(String(date.getFullYear())+date.getMonth()+date.getDate()+date.getHours()+date.getMinutes())
         // alert(Img_Link)
         // const Img_Link = "https://opengraph.githubassets.com/"+date.getFullYear()+date.getMonth()+date.getDate()+date.getHours()+date.getMinutes()+"/Morkovka21Vek/AI_Font_Generator"
