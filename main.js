@@ -64,9 +64,68 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Connection error');
         };
     })
-    
+    const text = [
+        'python',
+        'Python 3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)] on win32<br>Type "help", "copyright", "credits" or "license" for more information.',
+        'from users import Morkovka21Vek',
+        'print(Morkovka21Vek.hello)',
+        "Hi, I'm <u class='consoleLinkMorkovka21Vek'>Morkovka21Vek</u>",
+        'print(Morkovka21Vek.data)'
+    ];
+    // <div class='consoleLinkMorkovka21VekDiv' onmouseover='changeItem()' onmouseout='rechangeItem()'></div>
+    let line = 0;
+    let count = 0;
+    // let result = 'Python 3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)] on win32<br>Type "help", "copyright", "credits" or "license" for more information.<br>>>> ';
+    let result = '???> ';
+    function typeLine() {
+        let interval = setTimeout(
+        () => {
+        result += text[line][count];
+        // alert(document.getElementById('pre123'))
+        document.getElementById('consoleTextP').innerHTML = result;// + '|';
+        count++;
+        if (count >= text[line].length) {
+            count = 0;
+            result += "<br>";
+            line++;
+        
+        
+        if (line == 1 || line == 4) {
+            result += text[line];
+            result += "<br>";
+            line++;
+        }
+
+        if (line == 2 || line == 3 || line == 5) {
+            result += ">>> ";
+        }
+
+        if (line == 6) {
+            setTimeout(() => {
+                result += '{<br>"platform": "Windows 10"<br>"country": "Russia/Moskow"<br>"time": "UTC +03:00"<br>}'
+                document.getElementById('consoleTextP').innerHTML = result;
+                return true;
+            }, 500);
+        }
+
+        if (line == text.length) {
+            clearTimeout(interval);
+            // document.getElementById('consoleTextP').innerHTML = result;
+            return true;
+        }
+        }
+        typeLine();
+            }, 25)
+        }
+        setTimeout(() => { typeLine(); }, 3500);
 });
 
+// function changeItem() {
+//     document.getElementById('consoleLinkMorkovka21VekDiv').style.display = 'block';
+// }
+// function rechangeItem() {
+//     document.getElementById('consoleLinkMorkovka21VekDiv').style.display = 'none';
+// }
 
 // const AI_Font_Generator_Img = document.getElementById('AI_Font_Generator_Img');
 // var date = new Date();
