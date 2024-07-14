@@ -192,81 +192,30 @@ body::-webkit-scrollbar-thumb{
 	white-space: nowrap;  
 	/* margin: 0 auto;   */
 	letter-spacing: .15em;
+	/* margin-bottom: 1em; */
+	line-height: 24px;
 	/* animation: typing 3.5s steps(30, end); */
-	animation: typingZero 8.5s ease;
+	/* animation: typingZero 8.5s ease; */
 }
-.consoleText p:nth-child(1) {
-	color: #12dd12;
-  	/* overflow: hidden; */
-	letter-spacing: .15em;
-	width: 100%;
-	white-space: nowrap;
-	animation: typingZero 1s ease;
-}
-.consoleText p:nth-child(2) {
-	color: #12dd12;
-  	/* overflow: hidden; */
-	letter-spacing: .15em;
-	width: 100%;
-	white-space: nowrap;
-	animation: typingZero 1s ease;
-}
-.consoleText p:nth-child(3) {
-	color: #12dd12;
-  	overflow: visible;
-	letter-spacing: .15em;
-	animation: typing 5.5s ease;
-	white-space: nowrap;
-}
-.consoleText p:nth-child(4) {
-	color: #12dd12;
-  	overflow: visible;
-	letter-spacing: .15em;
-	animation: typing 6.5s ease;
-	white-space: nowrap;
-}
+ /* .consoleLinkMorkovka21Vek:hover ~ .consoleLinkMorkovka21VekDiv {
+	display: block;
+ }
+.consoleLinkMorkovka21VekDiv:hover {
+	display: block;
+} */
+/* .crown:hover ~ .consoleText {
+	color: #f00;
+  } */
 
-@keyframes typing {
-	/* from { width: 0 }
-	to { width: 100% } */
-	0% { 
-		width: 32px;
-		overflow: hidden;
-	}
-	60% {
-		width: 32px; 
-		overflow: hidden;
-	}
-	99% {
-		width: 100%;
-		overflow: hidden;
-	}
-	100% {
-		width: 100%;
-		overflow: visible;
-	}
-  }
-
-  @keyframes typingZero {
-	/* from { width: 0 }
-	to { width: 100% } */
-	0% { 
-		width: 0%;
-		overflow: hidden;
-	}
-	60% {
-		width: 0%; 
-		overflow: hidden;
-	}
-	99% {
-		width: 100%;
-		overflow: hidden;
-	}
-	100% {
-		width: 100%;
-		overflow: visible;
-	}
-  }
+.consoleLinkMorkovka21VekDiv {
+	border-radius: 20px;
+	border: 5px solid white;
+	background-color: white;
+	height: 50px;
+	width: 300px;
+	display: none;
+	/* transform: translateZ(50px); */
+}
 
 .selection-progects {
 	bottom: 40px;
@@ -311,6 +260,9 @@ body::-webkit-scrollbar-thumb{
 		/* height: 242px; */
 		transform: translateY(-2px);
     }
+	.consoleLinkMorkovka21Vek:hover {
+		color: #0da10d;
+	}
 }
 
 .progects-block h3 {
