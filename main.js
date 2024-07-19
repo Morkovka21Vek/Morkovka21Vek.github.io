@@ -15,36 +15,17 @@ String.prototype.format = function () {
     'print(Morkovka21Vek.data)',
 ];
 
-new_result = '???> python<br>Python 3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)] on win32<br>Type "help", "copyright", "credits" or "license" for more information.<br>>>>from users import Morkovka21Vek<br>print(Morkovka21Vek.hello)<br>'+"Hi, I'm <u class='consoleLinkMorkovka21Vek'>Morkovka21Vek</u><br>"+'print(Morkovka21Vek.data)<br>{<br>"platform": "Windows 10"<br>"country": "Russia/Moskow"<br>"time": "UTC +03:00"<br>}<br>'
+new_result = '???> python<br>Python 3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)] on win32<br>Type "help", "copyright", "credits" or "license" for more information.<br>>>>from users import Morkovka21Vek<br>print(Morkovka21Vek.hello)<br>'+"Hi, I'm <u class='consoleLinkMorkovka21Vek'>Morkovka21Vek</u><br>"+'print(Morkovka21Vek.data)<br>{<br>"platform": "Windows 10"<br>"country": "Russia/Moskow"<br>"time": "UTC +03:00"<br>}<br>';
 
-is_typing = false
-mode = "python"
+is_typing = false;
+mode = "python";
+
+text_new_result = [];
+prefix_new_result = [];
+
 // new_result = '???> python<br>Python 3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)] on win32<br>Type "help", "copyright", "credits" or "license" for more information.<br>>>>from users import Morkovka21Vek<br>print(Morkovka21Vek.hello)<br>'+"Hi, I'm <u class='consoleLinkMorkovka21Vek'>Morkovka21Vek</u><br>"+'print(Morkovka21Vek.data)<br>{<br>"platform": "Windows 10"<br>"country": "Russia/Moskow"<br>"time": "UTC +03:00"<br>}<br>'
 
 document.addEventListener('DOMContentLoaded', function() {
-    let blocks = document.querySelectorAll('.progects-block');
- 
-    // alert(blocks)
-    function checkBlocksVisibility() {
-        let windowHeight = window.innerHeight;
- 
-        blocks.forEach(block => {
-            let blockPosition = block.getBoundingClientRect().top;
-            if (block.id.indexOf('opened') == -1 && is_typing == false){
-                if (blockPosition < windowHeight - 350) {
-                    text = []
-                    block.style.opacity = "1";
-                    block.style.transform = "translateY(0)";
-                    // typeLineProgects("img.show(imgs/"+block.id+")");
-                    is_typing = true
-                    typeLineProgects("git clone https://github.com/Morkovka21Vek/"+block.id+".git");
-                    block.id = block.id+"-opened";
-                }
-            }
-        });
-    }
- 
-    checkBlocksVisibility();
 
     let progectTrigger = document.querySelector('.MoveConsoleTrigger');
     let Console = document.querySelector('.console');
@@ -56,6 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
         /* position: fixed; */
         let progectTriggerPosition = progectTrigger.getBoundingClientRect().top;
         if (progectTriggerPosition < windowHeight - 100) {
+            // bottomConsol.style.display = "block"
+            bottomConsol.style.visibility = "visible"
             bottomConsol.style.transform = "translateY(0)";
             bottomConsol.style.opacity = "1";
             Console.style.opacity = "0";
@@ -66,22 +49,78 @@ document.addEventListener('DOMContentLoaded', function() {
             // Console.style.transform = "translate(-50%, "+(2000 - bottomConsolPosition)+"px)";
             // Console.style.bottom = "0";
             if (mode == "python") {
-                is_typing = true
-                typeLineProgects("quit()");
+                prefix_new_result.push(">>>")
+                text_new_result.push("quit()");
+                if (is_typing == false) {
+                    is_typing = true;
+                    typeLineProgects();
+                }
                 mode = "cmd"
             }
         } else {
+            // bottomConsol.style.display = "none"
             bottomConsol.style.transform = "translateY(-150%)";
             bottomConsol.style.opacity = "0";
             Console.style.opacity = "1";
+            bottomConsol.style.visibility = "hidden"
         }
     }
  
     checkTriggerProgectsVisibility();
 
+    let blocks = document.querySelectorAll('.progects-block');
+ 
+    function checkBlocksVisibility() {
+        let windowHeight = window.innerHeight;
+ 
+        blocks.forEach(block => {
+            let blockPosition = block.getBoundingClientRect().top;
+            if (block.id.indexOf('opened') == -1){
+                if (blockPosition < windowHeight - 350) {
+                    text = []
+                    block.style.opacity = "1";
+                    block.style.transform = "translateY(0)";
+                    // typeLineProgects("img.show(imgs/"+block.id+")");
+                    prefix_new_result.push("???>")
+                    text_new_result.push("git clone https://github.com/Morkovka21Vek/"+block.id+".git");
+                    // console.log(text_new_result);
+                    if (is_typing == false) {
+                        is_typing = true;
+                        typeLineProgects();
+                    }
+                    block.id = block.id+"-opened";
+                }
+            }
+        });
+    }
+ 
+    checkBlocksVisibility();
+
+    function checkDemoVisibility() {
+        let block = document.querySelector('.selection-online-demos');
+        let windowHeight = window.innerHeight;
+        if (block.id.indexOf('opened') == -1){
+            let blockPosition = block.getBoundingClientRect().top;
+            if (blockPosition < windowHeight - 350) {
+                block.style.opacity = "1";
+                // block.style.transform = "translateY(0)";
+                prefix_new_result.push("???>")
+                text_new_result.push("git clone https://github.com/Morkovka21Vek/morkovka21vek.github.io.git");
+                if (is_typing == false) {
+                    is_typing = true;
+                    typeLineProgects();
+                }
+                block.id = block.id+"-opened";
+            }
+        }
+    }
+ 
+    checkDemoVisibility();
+
     window.addEventListener('scroll', function() {
         checkBlocksVisibility();
         checkTriggerProgectsVisibility();
+        checkDemoVisibility();
     });
 
     // addLink = (url) => ``
@@ -131,6 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         let interval = setTimeout(
         () => {
+        if (text.length == 0) return true
         result += text[line][count];
         // alert(document.getElementById('pre123'))
         document.querySelectorAll('.consoleTextP').forEach(consolePtext => {
@@ -183,10 +223,15 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => { typeLine(); }, 3500);
 
     let typeLineProgectsCount = 0;
-    function typeLineProgects(text_new_result) {
+    let my_new_string = null;
+    function typeLineProgects() {
         let interval = setTimeout(
         () => {
-        new_result += text_new_result[typeLineProgectsCount];
+        if (my_new_string == null) {
+            my_new_string = text_new_result.shift();
+            new_result += prefix_new_result.shift();
+        }
+        new_result += my_new_string[typeLineProgectsCount];
         document.querySelectorAll('.consoleTextP').forEach(consolePtext => {
             consolePtext.innerHTML = new_result;
         })
@@ -194,7 +239,7 @@ document.addEventListener('DOMContentLoaded', function() {
             consoletext.scrollTop = consoletext.scrollHeight;
         })
         typeLineProgectsCount++;
-        if (typeLineProgectsCount >= text_new_result.length) {
+        if (typeLineProgectsCount >= my_new_string.length) {
             typeLineProgectsCount = 0;
             new_result += "<br>";
             document.querySelectorAll('.consoleTextP').forEach(consolePtext => {
@@ -203,11 +248,17 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.consoleText').forEach(consoletext => {
                 consoletext.scrollTop = consoletext.scrollHeight;
             })
-            clearTimeout(interval);
-            is_typing = false
-            return true;
+            if (text_new_result.length == 0) {
+                clearTimeout(interval);
+                is_typing = false;
+                my_new_string = null;
+                return true;
+            } else {
+                my_new_string = text_new_result.shift();
+                new_result += prefix_new_result.shift();
+            }
         }
-        typeLineProgects(text_new_result);
+        typeLineProgects();
             }, 25)
         }
 });
