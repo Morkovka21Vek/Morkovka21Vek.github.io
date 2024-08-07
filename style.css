@@ -235,6 +235,7 @@ body::-webkit-scrollbar-thumb{
 
 .selection-progects {
 	bottom: 40px;
+	position: relative;
 }
 
 .selection-progects h2 {
@@ -256,8 +257,7 @@ body::-webkit-scrollbar-thumb{
 	width: 100vw;
 } */
 
-.progects-block {
-	background-color: #252525;
+/* .progects-block {
 	border: 2px solid rgb(206, 206, 206);
 	border-radius: 20px;
 	width: calc(100vw - 100px);
@@ -271,20 +271,80 @@ body::-webkit-scrollbar-thumb{
 	justify-content: space-evenly;
 	margin-left: auto;
     margin-right: auto;
+} */
+.progects-block {
+    margin-bottom: 50px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: transform 0.5s, opacity 0.5s;
+	/* width: 100vw; */
+} 
+
+.text-progects-block {
+	border: 2px solid rgb(206, 206, 206);
+	border-radius: 20px;
+	width: calc(50vw - 25px);
+	max-width: 500px;
+	height: auto;
+	margin-right: calc(50% + 14px);
+	margin-left: auto;
+	position: relative;
+	background-color: #252525;
+}
+.timelineArrow {
+	content: '';
+	/* border: 2px solid rgb(206, 206, 206); */
+	position: absolute;
+	width: 0;
+	height: 0;
+	border: 15px solid transparent;
+	border-left-color: rgb(206, 206, 206);
+	/* margin-left: 100%; */
+	left: 100%;
+	top: 50%;
+	margin-top: -15px;
+  }
+.timelineArrowAfter {
+	content: '';
+	/* border: 2px solid rgb(206, 206, 206); */
+	position: absolute;
+	width: 0;
+	height: 0;
+	border: 13px solid transparent;
+	border-left-color: #252525;
+	/* margin-left: 100%; */
+	left: 100%;
+	top: 50%;
+	margin-top: -13px;
+  }
+
+.timelinePoint {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	background-color: #0da10d;
+	border: 5px solid #12dd12;
+	border-radius: 100%;
+	/* left: calc(100% - 0); */
+	left: 100%;
+	top: 50%;
+	margin-top: -20px;
 }
 
 @media (hover: hover) {
-    .progects-block:hover {
-        /* width: calc(100vw - 80px); */
+    .progects-block:hover .text-progects-block{
 		border: 2px solid rgb(236, 236, 236);
-		background-color: #242424;
     }
-	.progects-block img:hover {
-        /* width: calc(100vw - 80px); */
+	.progects-block:hover .timelineArrow{
+		border-left-color: rgb(236, 236, 236);
+    }
+	.progects-block:hover .progects-img{
+		border: 2px solid rgb(236, 236, 236);
+    }
+	/* .progects-img:hover {
 		border-radius: 18px;
-		/* height: 242px; */
 		transform: translateY(-2px);
-    }
+    } */
 	.consoleLinkMorkovka21Vek:hover {
 		color: #0da10d;
 	}
@@ -303,21 +363,19 @@ body::-webkit-scrollbar-thumb{
 	font-size: 43px;
 	/* transform: translate(50px, 20px) */
 }
-.progects-block img {
-	/* top: 0; */
-	/* bottom: 0; */
-	/* right: 0; */
-	/* transform: translate(calc(100vw - 650px), -80px); */
-	/* width: 300px; */
-	/* height: 240px; */
+.progects-img {
 	max-width: 500px;
-	width: calc(100vw - 100px);
-	/* min-width: 400px; */
-	/* height: max-content; */
-
+	/* width: calc(100vw - 100px); */
 	border-radius: 20px;
-	/* position:relative; */
-	/* align-self: flex-end; */
+	position: absolute;
+	left: calc(50% + 30px);
+	top: 50%;
+	transform: translateY(-50%);
+	border: 2px solid rgb(206, 206, 206);
+	width: calc(50vw - 30px);
+	height: auto;
+	/* margin-right: calc(50% + 14px);
+	margin-left: auto; */
 }
 
 .progects-last-commit {
@@ -380,3 +438,54 @@ body::-webkit-scrollbar-thumb{
 .selection-online-demos {
 	opacity: 0;
 }
+.ProgectMiddleLine {
+	background-color: #0da10d;
+	border-radius: 5px;
+	border: 2px solid #15cf15;
+	top: 50px;
+	bottom: 0;
+	width: 10px;
+	position: absolute;
+	left: 50%;
+	right: 50%;
+}
+/* .menuButton {
+	position: relative;
+	width: 100px;
+	height: 100px;
+	background-color: #0da10d;
+}
+.menuButton span {
+	position: absolute;
+	width: 100%;
+	height: 10px;
+	background-color: #fff;
+	border-radius: 5px;
+	transition: 0.5s;
+}
+.menuButton-line-1 {
+	top: 20%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.menuButton-line-2 {
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.menuButton-line-3 {
+	top: 80%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.menuButton.active .menuButton-line-1 {
+	transform: rotate(-45deg) translate(-50%, -100%);
+}
+  
+.menuButton.active .menuButton-line-2 {
+	opacity: 0;
+}
+  
+.menuButton.active .menuButton-line-3 {
+	transform: rotate(45deg) translate(-50%, 100%);
+}   */

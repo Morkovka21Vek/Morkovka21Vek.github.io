@@ -27,6 +27,22 @@ prefix_new_result = [];
 
 document.addEventListener('DOMContentLoaded', function() {
 
+    if (this.documentElement.clientWidth < 900) {
+        const text_progects_blocks = document.querySelectorAll(".text-progects-block");
+        const timelineArrowAfters = document.querySelectorAll(".timelineArrowAfter");
+        const progects_imgs = document.querySelectorAll(".progects-img");
+        const timelineArrows = document.querySelectorAll(".timelineArrow");
+        const timelinePoints = document.querySelectorAll(".timelinePoint");
+        let delBorder = `border: 0 solid transparent;`;
+        let text_progects_block_phones = `margin-right: auto;\nmax-width: 700px;\nwidth: calc(100vw - 25px);`;
+        let progects_img_phones = `left: 50%; width: calc(100vw - 30px); transform: translate(-50%, -2px); position: relative; border-top-left-radius: 0; border-top-right-radius: 0;`;
+        progects_imgs.forEach(progects_img => {progects_img.style = progects_img_phones;});
+        timelinePoints.forEach(timelinePoint => {timelinePoint.parentNode.removeChild(timelinePoint);});
+        text_progects_blocks.forEach(text_progects_block => {text_progects_block.style = text_progects_block_phones;});
+        timelineArrows.forEach(timelineArrow => {timelineArrow.parentNode.removeChild(timelineArrow);});
+        timelineArrowAfters.forEach(timelineArrowAfter => {timelineArrowAfter.parentNode.removeChild(timelineArrowAfter);});
+    }
+
     let progectTrigger = document.querySelector('.MoveConsoleTrigger');
     let Console = document.querySelector('.console');
     let bottomConsol = document.querySelector('.bottomConsol');
