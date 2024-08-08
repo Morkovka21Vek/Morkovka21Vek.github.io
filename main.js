@@ -1,10 +1,3 @@
-String.prototype.format = function () {
-    var i = 0, args = arguments;
-    return this.replace(/any_hash_number/g, function () {
-      return typeof args[i] != 'undefined' ? args[i++] : '';
-    });
-  };
-
   let result = '???> ';
   let text = [
     'python',
@@ -89,14 +82,14 @@ document.addEventListener('DOMContentLoaded', function() {
  
     checkTriggerProgectsVisibility();
 
-    let blocks = document.querySelectorAll('.progects-block');
+    const blocks = document.querySelectorAll('.progects-block');
  
     function checkBlocksVisibility() {
         let windowHeight = window.innerHeight;
  
         blocks.forEach(block => {
             let blockPosition = block.getBoundingClientRect().top;
-            if (block.id.indexOf('opened') == -1){
+            if (block.className.indexOf('opened') == -1){
                 if (blockPosition < windowHeight - 350) {
                     text = []
                     block.style.opacity = "1";
@@ -109,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         is_typing = true;
                         typeLineProgects();
                     }
-                    block.id = block.id+"-opened";
+                    block.className = block.className+" opened";
                 }
             }
         });
@@ -117,10 +110,10 @@ document.addEventListener('DOMContentLoaded', function() {
  
     checkBlocksVisibility();
 
+    const block = document.querySelector('.selection-online-demos');
     function checkDemoVisibility() {
-        let block = document.querySelector('.selection-online-demos');
         let windowHeight = window.innerHeight;
-        if (block.id.indexOf('opened') == -1){
+        if (block.className.indexOf('opened') == -1){
             let blockPosition = block.getBoundingClientRect().top;
             if (blockPosition < windowHeight - 350) {
                 block.style.opacity = "1";
@@ -131,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     is_typing = true;
                     typeLineProgects();
                 }
-                block.id = block.id+"-opened";
+                block.className = block.className+" opened";
             }
         }
     }
@@ -148,10 +141,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let imgs = document.querySelectorAll('.progects-img');
     var date = new Date();
     imgs.forEach(img => {
-        var Img_Link = img.src.format(String(date.getFullYear())+date.getMonth()+date.getDate()+date.getHours())
-        // alert(String(date.getFullYear())+date.getMonth()+date.getDate()+date.getHours()+date.getMinutes())
-        // alert(Img_Link)
-        // const Img_Link = "https://opengraph.githubassets.com/"+date.getFullYear()+date.getMonth()+date.getDate()+date.getHours()+date.getMinutes()+"/Morkovka21Vek/AI_Font_Generator"
+        // var Img_Link = img.src.format(String(date.getFullYear())+date.getMonth()+date.getDate()+date.getHours());
+        var Img_Link = "https://opengraph.githubassets.com/" + String(date.getFullYear())+date.getMonth()+date.getDate()+date.getHours() + "/Morkovka21Vek/" + img.parentElement.id;
+        console.log(Img_Link)
         img.setAttribute("src", Img_Link);
     })
 
@@ -179,9 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Connection error');
         };
     })
-    
-    // <div class='consoleLinkMorkovka21VekDiv' onmouseover='changeItem()' onmouseout='rechangeItem()'></div>
-    // <div id='consoleLinkMorkovka21VekDiv' onmouseover='changeItem()' onmouseout='rechangeItem()'></div>
+
     let line = 0;
     let count = 0;
     // let result = 'Python 3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)] on win32<br>Type "help", "copyright", "credits" or "license" for more information.<br>>>> ';
@@ -283,18 +273,3 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 25)
         }
 });
-
-// function changeItem() {
-//     document.getElementById('consoleLinkMorkovka21VekDiv').style.display = "block";
-//     // alert("hello")
-// }
-// function rechangeItem() {
-//     document.getElementById('consoleLinkMorkovka21VekDiv').style.display = "none";
-// }
-
-// const AI_Font_Generator_Img = document.getElementById('AI_Font_Generator_Img');
-// var date = new Date();
-// alert(AI_Font_Generator_Img_Link)
-// const AI_Font_Generator_Img_Link = "https://opengraph.githubassets.com/"+date.getFullYear()+date.getMonth()+date.getDate()+date.getHours()+date.getMinutes()+"/Morkovka21Vek/AI_Font_Generator"
-// // alert(strLink)
-// AI_Font_Generator_Img.setAttribute("src", AI_Font_Generator_Img_Link);
