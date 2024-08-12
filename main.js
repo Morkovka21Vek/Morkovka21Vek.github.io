@@ -8,10 +8,13 @@
     ['print(Morkovka21Vek.hello)', true],
     ["<br>Hi, I'm <u class='consoleLinkMorkovka21Vek'>Morkovka21Vek</u><br>>>>", false],
     ['print(Morkovka21Vek.data)', true],
-    ['<br>{<br>"platform": "Windows 10"<br>"country": "Russia/Moskow"<br>"time": "UTC +03:00"<br>}', false]
+    ['<br>{<br>"platform": "Windows 10"<br>"country": "Russia/Moskow"<br>"time": "UTC +03:00"<br>}<br>', false]
 ];
 
-new_result = '???> python<br>Python 3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)] on win32<br>Type "help", "copyright", "credits" or "license" for more information.<br>>>>from users import Morkovka21Vek<br>print(Morkovka21Vek.hello)<br>'+"Hi, I'm <u class='consoleLinkMorkovka21Vek'>Morkovka21Vek</u><br>"+'print(Morkovka21Vek.data)<br>{<br>"platform": "Windows 10"<br>"country": "Russia/Moskow"<br>"time": "UTC +03:00"<br>}<br>';
+new_result = '';
+text.forEach(textElem => {
+    new_result+=textElem[0]
+})
 
 is_typing = false;
 mode = "python";
@@ -46,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         let progectTriggerPosition = progectTrigger.getBoundingClientRect().top;
         if (progectTriggerPosition < windowHeight - 100) {
-            bottomConsol.style.visibility = "visible"
+            // bottomConsol.style.visibility = "visible"
             bottomConsol.style.transform = "translateY(0)";
             bottomConsol.style.opacity = "1";
             Console.style.opacity = "0";
@@ -64,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
             bottomConsol.style.transform = "translateY(-150%)";
             bottomConsol.style.opacity = "0";
             Console.style.opacity = "1";
-            bottomConsol.style.visibility = "hidden"
+            // bottomConsol.style.visibility = "hidden"
         }
     }
  
