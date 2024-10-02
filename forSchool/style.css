@@ -337,6 +337,36 @@ body::-webkit-scrollbar-thumb{
 	-webkit-mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
 			mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
   }
+  .NoGolos {
+	--p:20;
+	--b:22px;
+	/* --w:min(calc(100vw - 200px), 500px); */
+	
+	width:100%;
+	aspect-ratio:1;
+	position: relative;
+	/* top: max(calc(var(--w)), 500px); */
+	display:inline-grid;
+	/* left: 50%; */
+	/* transform: translate(-50%, -50%); */
+	place-content:center;
+	font-size:25px;
+	font-weight:bold;
+	font-family:sans-serif;
+  }
+  .NoGolos:before,
+  .NoGolos:after {
+	content:"";
+	position:absolute;
+	border-radius:50%;
+  }
+  .NoGolos:before {
+	inset:0;
+	background:
+	conic-gradient(blue 34.2%, red 34.2% 77%, green 77% 79.8%, #550ddb 79.8% 94%, orange 0);
+	-webkit-mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+			mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+  }
 
   .dgUp {
 	max-width: 500px;
@@ -382,6 +412,9 @@ body::-webkit-scrollbar-thumb{
   }
   .orangeBg {
 	background-color: orange;
+  }
+  .purpleBg {
+	background-color: #550ddb;
   }
 
   /* .progects-img {
@@ -476,5 +509,8 @@ body::-webkit-scrollbar-thumb{
 	width: 100%;
   }
   .onlyYaAndGoTable {
+	width: 100%;
+  }
+  .NoGolosTable {
 	width: 100%;
   }
