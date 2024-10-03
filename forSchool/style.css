@@ -363,7 +363,7 @@ body::-webkit-scrollbar-thumb{
   .NoGolos:before {
 	inset:0;
 	background:
-	conic-gradient(blue 34.2%, red 34.2% 77%, green 77% 79.8%, #550ddb 79.8% 94%, orange 0);
+	conic-gradient(red 34.2%, blue 34.2% 77%, green 77% 79.8%, #550ddb 79.8% 94%, orange 0);
 	-webkit-mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
 			mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
   }
