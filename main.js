@@ -1,6 +1,6 @@
   let result = '';
   let text = [
-    ['???>', false],
+    ['Morkovka21Vek>', false],
     ['python', true],
     ['<br>Python 3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)] on win32<br>Type "help", "copyright", "credits" or "license" for more information.<br>>>>', false],
     ['from users import Morkovka21Vek', true],
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     canWriteStart = false
                     block.style.opacity = "1";
                     block.style.transform = "translateY(0)";
-                    prefix_new_result.push("???>")
+                    prefix_new_result.push("Morkovka21Vek>")
                     text_new_result.push("git clone https://github.com/Morkovka21Vek/"+block.id+".git");
                     if (is_typing == false) {
                         is_typing = true;
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let blockPosition = block.getBoundingClientRect().top;
             if (blockPosition < windowHeight - 350) {
                 block.style.opacity = "1";
-                prefix_new_result.push("???>")
+                prefix_new_result.push("Morkovka21Vek>")
                 text_new_result.push("git clone https://github.com/Morkovka21Vek/morkovka21vek.github.io.git");
                 if (is_typing == false) {
                     is_typing = true;
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log(commitDate);
                 var splitCommitDate = commitDate.split('-');
                 var rightCommitDate = String(splitCommitDate[2]).split('T')[0] +'.'+ String(splitCommitDate[1]) +'.'+ splitCommitDate[0];
-                var LastCommitDateOut = "Last commit: "+rightCommitDate;
+                var LastCommitDateOut = myH.id + rightCommitDate;
                 console.log(LastCommitDateOut);
                 myH.innerHTML = LastCommitDateOut;
         }

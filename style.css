@@ -239,8 +239,8 @@ body::-webkit-scrollbar-thumb{
 } */
 .progects-block {
     margin-bottom: 50px;
-    opacity: 0;
-    transform: translateY(50px);
+    opacity: 1;
+    /* transform: translateY(50px); */
     transition: transform 0.5s, opacity 0.5s;
 } 
 
@@ -377,7 +377,8 @@ body::-webkit-scrollbar-thumb{
 	margin-bottom: 10px;
 }
 .selection-online-demos {
-	opacity: 0;
+	opacity: 1;
+	transition: 1s;
 }
 .ProgectMiddleLine {
 	background-color: #0da10d;
