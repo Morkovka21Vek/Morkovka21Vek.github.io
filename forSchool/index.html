@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" href="ico.jpg" />
     <title>Диаграммы 7Б</title>
-    <script>
+    <script type="text/javascript" src="confetti.js"></script>
+    <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
             if (this.documentElement.clientWidth < 1100) {
                 let text_progects_block_phones = `margin-right: auto; max-width: 700px; width: calc(100vw - 25px);`;
@@ -207,6 +208,48 @@
     <h5 class="NoteH5">
         *Все данные были получены в результате опроса учеников 7 класса. В голосовании учавствовали 30 человек.
     </h5>
+    <div id="confetti"></div>
+    <style>
+        #confetti{
+	height: 100%;
+	left: 0px;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	/* z-index: -1; */
+}
+    </style>
+    <!-- <div class="congratulation">
+        <h1>Поздравляем!</h1>
+        <h2>Как вы это нашли?<br><a href="https://github.com/Morkovka21Vek/Morkovka21Vek.github.io/tree/main/forSchool">Исходный код.</a></h2>
+    </div> -->
+    <style>
+        .congratulation {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(35, 35, 35, 0.7);
+            border-radius: 20px;
+            width: 500px;
+            height: 300px;
+            text-align: center;
+            font-size: 20px;
+            animation: renderCongratulation 0.5s ease;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .congratulation a {
+            color: green;
+        }
+        @keyframes renderCongratulation {
+            from{
+                top: 150%;
+            }
+            to{
+                top: 50%;
+            }
+        }
+    </style>
 
 </body>
 </html>
