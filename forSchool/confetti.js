@@ -366,7 +366,7 @@ document.addEventListener('DOMContentLoaded', function() {
         congratulationH1.innerHTML = "Поздравляем!";
         congratulationDiv.appendChild(congratulationH1);
         let congratulationH2 = document.createElement("h2");
-        congratulationH2.innerHTML = `Как вы это нашли?<br><a href="https://github.com/Morkovka21Vek/Morkovka21Vek.github.io/tree/main/forSchool">Исходный код.</a>`;
+        congratulationH2.innerHTML = `Как Вы это нашли?<br><a href="https://github.com/Morkovka21Vek/Morkovka21Vek.github.io/tree/main/forSchool">Исходный код.</a>`;
         congratulationDiv.appendChild(congratulationH2);
         document.body.appendChild(congratulationDiv);
     }
