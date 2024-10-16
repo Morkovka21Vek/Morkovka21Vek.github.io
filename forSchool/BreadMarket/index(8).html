@@ -1,0 +1,221 @@
+<html>
+ <head>
+  <title>
+   Хлебный магазин
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link rel="icon" type="image/png" href="./logo.jpg" />
+    <title>BreadMarket</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css" /> -->
+    <!-- <script src="main.js"></script> -->
+    <meta property="og:title" content="Хлебный магазин" />
+    <meta property="og:description" content="Главная" />
+    <meta property="og:image" content="https://morkovka21vek.github.io/imgs/GITHUB___IMG_20240303_161825_480.png" />
+    <meta property="og:url" content="https://morkovka21vek.github.io/forSchool/BreadMarket" />
+  <style>
+   body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1e1e2e;
+            color: #ffffff;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            padding: 10px;
+            background-color: #2b2b3b;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header .title {
+            display: flex;
+            align-items: center;
+        }
+        .header .title img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        /* img { */
+            /* left: 5px; */
+        /* } */
+        .header .title span {
+            font-size: 18px;
+        }
+        .header .actions {
+            display: flex;
+            align-items: center;
+        }
+        .header .actions i {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .message {
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .message .text .mytext {
+            margin-bottom: 10px;
+        }
+        .text {
+            background-color: rgb(30, 40, 60);
+            border-radius: 20px;
+            /* width: auto; */
+            padding: 20px;
+            left: 20px;
+            width: 90%;
+            max-width: 500px;
+            /* position: relative; */
+        }
+        .mytext {
+            margin-bottom: 20px;
+            background-color: #2b5278;
+            border-radius: 20px;
+            padding: 20px;
+            /* right: 5px; */
+            left: 20px;
+            width: 80%;
+            position: relative;
+            max-width: 500px;
+        }
+        .message .image {
+            display: flex;
+
+            /* justify-content: center; */
+        }
+        .message .image img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .space {
+            padding: 40px;
+        }
+        .bottomspace {
+            padding: 200px;
+        }
+        .footer {
+            padding: 10px;
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 5px;
+            background-color: #2b2b3b;
+            display: flex;
+            align-items: center;
+        }
+        .footer input {
+            flex-grow: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3b3b4b;
+            color: #ffffff;
+            margin-right: 10px;
+        }
+        .footer .buttons {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .footer .buttons button {
+            padding: 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3b3b4b;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        .footer .buttons button:hover {
+            background-color: #4b4b5b;
+        }
+  </style>
+ </head>
+ <body>
+  <div class="container">
+   <div class="header">
+    <div class="title">
+     <img alt="User icon" height="30" src="./logo.jpg" width="30"/>
+     <span>
+      Хлебный магазин
+     </span>
+    </div>
+    <!-- <div class="actions"> -->
+     <!-- <i class="fas fa-search"> -->
+     <!-- </i> -->
+     <!-- <i class="fas fa-ellipsis-v"> -->
+     <!-- </i> -->
+    <!-- </div> -->
+   </div>
+   <div class="space"></div>
+   <div class="message" id="chips">
+    <div class="mytext">Чипсы</div>
+    <div class="text">Чипсы картофельные Twister с солью, 70 грамм<br>70₽<br>НЕТ В НАЛИЧИИ!</div>
+    <div class="image">
+     <img alt="" height="400" src="./photo_2024-10-16_19-55-38.jpg" width="300"/>
+    </div>
+   </div>
+   <div class="message" id="chocolate">
+    <div class="mytext">Шоколад</div>
+    <div class="text">Шоколад Alpen Gold в ассортименте 90 грамм<br>85₽</div>
+    <div class="image">
+     <img alt="" height="400" src="./photo_2024-10-16_20-09-37.jpg" width="300"/>
+    </div>
+    <div class="image">
+      <img alt="" height="400" src="./photo_2024-10-16_20-09-41.jpg" width="300"/>
+    </div>
+   </div>
+   <div class="message" id="crackers">
+    <div class="mytext">Сухарики</div>
+    <div class="text">Сухарики Xрусteam Сметана, 40 грамм<br>30₽<br>ТОЛЬКО ПОД ЗАКАЗ!</div>
+    <div class="image">
+     <img alt="" height="400" src="./photo_2024-10-16_20-27-59.jpg" width="300"/>
+    </div>
+   </div>
+   <div class="message" id="marmelad">
+    <div class="mytext">Мармелад</div>
+    <div class="text">Мармелад "Роллсы" Chupa-Chups апельсин/лимон, 100 грамм<br>90₽<br>Мармелад "Фансы" Chupa-Chups, 100 грамм<br>90₽<br>Мармелад Fruittella Крутой Микс жевательный 70 г<br>70₽</div>
+    <div class="image">
+     <img alt="" height="400" src="./photo_2024-10-16_20-29-21.jpg" width="300"/>
+    </div>
+    <div class="image">
+        <img alt="" height="400" src="./photo_2024-10-16_20-29-31.jpg" width="300"/>
+       </div>
+       <div class="image">
+        <img alt="" height="400" src="./photo_2024-10-16_20-29-48.jpg" width="300"/>
+       </div>
+   </div>
+   <div class="bottomspace"></div>
+   <div class="footer">
+    <!-- <input placeholder="Написать сообщение..." type="text"/> -->
+    <div class="buttons">
+     <a href="#chips"><button>Чипсы</button></a>
+     <a href="#chocolate"><button>Шоколад</button></a>
+     <a href="#crackers"><button>Сухарики</button></a>
+     <a href="#marmelad"><button>Мармелад</button></a>
+     <a href="#chips"><button>Жевательные конфеты</button></a>
+     <a href="#chips"><button>Напитки</button></a>
+     <a href="#chips"><button>Чупа-Чупс</button></a>
+     <a href="#chips"><button>Шоколадные батончики</button></a>
+     <a href="#chips"><button>Жвачки</button></a>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>
