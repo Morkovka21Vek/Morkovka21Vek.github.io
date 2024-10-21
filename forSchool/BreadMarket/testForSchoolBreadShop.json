@@ -1,0 +1,46 @@
+{
+  "categories": [
+    {
+      "name": "Чипсы",
+      "id": "chips",
+      "products": [
+        {
+          "id": 0,
+          "text": "Чипсы картофельные Twister с солью, 70 грамм",
+          "price": "70₽",
+          "redText": "Нет в наличии",
+          "yellowText": "",
+          "imgs": [
+            "https://morkovka21vek.github.io/forSchool/BreadMarket/photo_2024-10-16_19-55-38.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Мармелад",
+      "id": "marmelad",
+      "products": [
+        {
+          "id": 1,
+          "text": "Мармелад «Роллсы» Chupa-Chups апельсин/лимон, 100 грамм",
+          "price": "90₽",
+          "redText": "",
+          "yellowText": "",
+          "imgs": [
+            "https://morkovka21vek.github.io/forSchool/BreadMarket/photo_2024-10-16_20-29-31.jpg"
+          ]
+        },
+        {
+          "id": 2,
+          "text": "Мармелад «Фансы» Chupa-Chups, 100 грамм",
+          "price": "90₽",
+          "redText": "",
+          "yellowText": "Только под заказ!",
+          "imgs": [
+            "https://morkovka21vek.github.io/forSchool/BreadMarket/photo_2024-10-16_20-29-48.jpg"
+          ]
+        }
+      ]
+    }
+  ]
+}

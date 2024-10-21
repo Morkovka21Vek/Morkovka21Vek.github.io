@@ -5,8 +5,12 @@
   --second-buttons-color: #656583;
   --text-color: #ffffff;
   --message-color: rgb(114, 125, 172);
+  --message-scrollbar-color: rgb(90, 98, 134);
   --mymessage-color: #4281c0;
+  --mymessage-scrollbar-color: #33679b;
   --theme-dark: 0%;
+  --red-text-color: red;
+  --yellow-text-color: orange;
   @media (prefers-color-scheme: dark) {
     --back-color: #1e1e2e;
     --head-color: #2b2b3b;
@@ -14,7 +18,9 @@
     --second-buttons-color: #4b4b5b;
     --text-color: #ffffff;
     --message-color: rgb(30, 40, 60);
+    --message-scrollbar-color: rgb(47, 62, 92);
     --mymessage-color: #2b5278;
+    --mymessage-scrollbar-color: #35628f;
     --theme-dark: 100%;
   }
 }
@@ -25,13 +31,13 @@ body {
   color: var(--text-color);
   overflow-x: hidden;
 }
-.container {
+/* .container {
   display: flex;
   height: 100vh;
   flex-direction: column;
-}
+} */
 .header {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
@@ -63,54 +69,64 @@ body {
   margin-left: 10px;
   cursor: pointer;
 }
-.message {
-  padding: 5px;
+.category {
+  padding: 10px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  margin-bottom: 30px;
 }
-.message .text .mytext {
-  margin-bottom: 10px;
+.product {
+  padding: 5px;
+  flex-direction: column;
+  flex-grow: 1;
+  display: flex;
 }
 .text {
   background-color: var(--message-color);
   border-radius: 20px;
-  /* width: auto; */
   position: relative;
   padding: 20px;
   left: 20px;
-  width: 100vw - 20px;
-  max-width: 500px;
-  /* position: relative; */
+  width: max-content;
+  max-width: calc(100vw - 100px);
+  overflow-x: auto;
+  margin-bottom: 20px;
 }
-.mytext {
+.categoryName {
   margin-left: auto;
   margin-bottom: 20px;
   background-color: var(--mymessage-color);
   border-radius: 20px;
   padding: 20px;
-  width: 100vw - 30px;
+  width: max-content;
   position: relative;
-  max-width: 500px;
+  max-width: calc(100vw - 100px);
+  overflow-x: auto;
+  margin-bottom: 25px;
 }
-.message .image {
-  display: flex;
+.text::-webkit-scrollbar,
+.categoryName::-webkit-scrollbar {
+  background-color: transparent;
 }
-.message img {
+.text::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: var(--message-scrollbar-color);
+}
+.categoryName::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: var(--mymessage-scrollbar-color);
+}
+.category img {
   max-width: 100%;
   border-radius: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
-}
-.space {
-  padding: 40px;
-}
-.bottomspace {
-  padding: 200px;
+  width: max(300px, 25%);
 }
 .footer {
   padding: 10px;
-  position: fixed;
+  position: sticky;
   left: 0;
   right: 0;
   bottom: 0;
@@ -163,12 +179,15 @@ body {
   filter: invert(var(--theme-dark));
   width: 23px;
 }
-.cropText {
-  margin-top: 0;
-  margin-left: 0;
-  margin-left: 0;
-  margin-right: 40px;
-  /* position: relative; */
+.redText {
+  color: var(--red-text-color);
+  /* margin-top: 10px; */
+  margin-bottom: 0;
+}
+.yellowText {
+  color: var(--yellow-text-color);
+  /* margin-top: 10px; */
+  margin-bottom: 0;
 }
 
 @media (hover: hover) {
@@ -185,7 +204,7 @@ body {
     right: -50px;
     opacity: 0;
   }
-  .message:hover .addToShoppingCart {
+  .category:hover .addToShoppingCart {
     right: 30px;
     opacity: 1;
   }
