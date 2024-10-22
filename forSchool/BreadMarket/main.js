@@ -50,8 +50,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         container.append(categoryDiv);
-
-        let buttonsElem = document.querySelector(".buttons");
+      });
+      let buttonsElem = document.querySelector(".buttons");
         json.navigationButtons.forEach((button) => {
           let buttonElement = document.createElement("button");
           buttonElement.innerText = button.text;
@@ -64,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
           buttonsElem.append(buttonElement);
         });
-      });
     }
   };
 
