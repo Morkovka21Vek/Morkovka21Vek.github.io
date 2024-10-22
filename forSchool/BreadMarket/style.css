@@ -31,11 +31,11 @@ body {
   color: var(--text-color);
   overflow-x: hidden;
 }
-/* .container {
-  display: flex;
-  height: 100vh;
-  flex-direction: column;
-} */
+.container {
+  /* display: flex; */
+  min-height: 100vh;
+  /* flex-direction: column; */
+}
 .header {
   position: sticky;
   top: 0;

@@ -1,17 +1,17 @@
 {
   "categories": [
     {
-      "name": "Чипсы",
-      "id": "chips",
+      "name": "Сухарики",
+      "id": "crackers",
       "products": [
         {
-          "id": 0,
-          "text": "Чипсы картофельные Twister с солью, 70 грамм",
-          "price": "70₽",
-          "redText": "Нет в наличии",
-          "yellowText": "",
+          "id": "crackers_0",
+          "text": "Сухарики Xрусteam Сметана, 40 грамм",
+          "price": "30₽",
+          "redText": "",
+          "yellowText": "ТОЛЬКО ПОД ЗАКАЗ!",
           "imgs": [
-            "https://morkovka21vek.github.io/forSchool/BreadMarket/photo_2024-10-16_19-55-38.jpg"
+            "https://morkovka21vek.github.io/forSchool/BreadMarket/photo_2024-10-22_18-44-13.jpg"
           ]
         }
       ]
@@ -21,26 +21,186 @@
       "id": "marmelad",
       "products": [
         {
-          "id": 1,
+          "id": "marmelad_0",
           "text": "Мармелад «Роллсы» Chupa-Chups апельсин/лимон, 100 грамм",
           "price": "90₽",
           "redText": "",
           "yellowText": "",
           "imgs": [
-            "https://morkovka21vek.github.io/forSchool/BreadMarket/photo_2024-10-16_20-29-31.jpg"
+            "https://morkovka21vek.github.io/forSchool/BreadMarket/photo_2024-10-22_18-44-55.jpg"
           ]
         },
         {
-          "id": 2,
+          "id": "marmelad_1",
           "text": "Мармелад «Фансы» Chupa-Chups, 100 грамм",
           "price": "90₽",
           "redText": "",
-          "yellowText": "Только под заказ!",
+          "yellowText": "",
           "imgs": [
-            "https://morkovka21vek.github.io/forSchool/BreadMarket/photo_2024-10-16_20-29-48.jpg"
+            "https://morkovka21vek.github.io/forSchool/BreadMarket/photo_2024-10-22_18-45-12.jpg"
+          ]
+        },
+        {
+          "id": "marmelad_2",
+          "text": "Мармелад жевательный Babyfox с витаминами 30г",
+          "price": "30₽",
+          "redText": "",
+          "yellowText": "",
+          "imgs": [
+            "https://morkovka21vek.github.io/forSchool/BreadMarket/photo_2024-10-22_18-46-11.jpg"
           ]
         }
       ]
+    },
+    {
+      "name": "Напитки",
+      "id": "drinks",
+      "products": [
+        {
+          "id": "drinks_0",
+          "text": "Вода питьевая «Малаховская» негазированная, 0,5л",
+          "price": "30₽",
+          "redText": "",
+          "yellowText": "",
+          "imgs": [
+            "https://morkovka21vek.github.io/forSchool/BreadMarket/photo_2024-10-22_18-48-25.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Шоколад",
+      "id": "chocolate",
+      "products": [
+        {
+          "id": "chocolate_0",
+          "text": "Шоколад Alpen Gold 90 грамм<br>Молочный «Классическая»",
+          "price": "85₽",
+          "redText": "",
+          "yellowText": "",
+          "imgs": [
+            "https://morkovka21vek.github.io/forSchool/BreadMarket/photo_2024-10-22_18-58-14.jpg"
+          ]
+        },
+        {
+          "id": "chocolate_1",
+          "text": "Шоколад Alpen Gold 90 грамм<br>Молочный с «Клубнично-йогуртной» начинкой",
+          "price": "70₽",
+          "redText": "",
+          "yellowText": "",
+          "imgs": [
+            "https://morkovka21vek.github.io/forSchool/BreadMarket/photo_2024-10-22_18-59-11.jpg"
+          ]
+        },
+        {
+          "id": "chocolate_2",
+          "text": "Шоколад Alpen Gold 90 грамм<br>Белый «Миндаль и кокос»",
+          "price": "70₽",
+          "redText": "",
+          "yellowText": "",
+          "imgs": [
+            "https://morkovka21vek.github.io/forSchool/BreadMarket/photo_2024-10-22_19-00-16.jpg"
+          ]
+        },
+        {
+          "id": "chocolate_3",
+          "text": "Шоколад Alpen Gold 90 грамм<br>Молочный «с фундуком»",
+          "price": "85₽",
+          "redText": "",
+          "yellowText": "",
+          "imgs": [
+            "https://morkovka21vek.github.io/forSchool/BreadMarket/photo_2024-10-22_19-01-34.jpg"
+          ]
+        },
+        {
+          "id": "chocolate_4",
+          "text": "Шоколад Alpen Gold 90 грамм<br>Молочный «Орео с черникой»",
+          "price": "85₽",
+          "redText": "",
+          "yellowText": "",
+          "imgs": [
+            "https://morkovka21vek.github.io/forSchool/BreadMarket/photo_2024-10-22_19-02-23.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Чупа-Чупс",
+      "id": "chupa-chups",
+      "products": [
+        {
+          "id": "chupa-chups_0",
+          "text": "Карамель Чупа-Чупс в ассортименте, 12 грамм",
+          "price": "15₽",
+          "redText": "",
+          "yellowText": "",
+          "imgs": [
+            "https://morkovka21vek.github.io/forSchool/BreadMarket/photo_2024-10-22_19-04-02.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Шоколадные батончики",
+      "id": "chocolate-bars",
+      "products": [
+        {
+          "id": "chocolate-bars_0",
+          "text": "Батончик Snickers «Лесной орех», 40 грамм",
+          "price": "40₽",
+          "redText": "",
+          "yellowText": "",
+          "imgs": [
+            "https://morkovka21vek.github.io/forSchool/BreadMarket/photo_2024-10-22_19-05-47.jpg"
+          ]
+        },
+        {
+          "id": "chocolate-bars_1",
+          "text": "Батончик Bounty, 30 грамм",
+          "price": "25₽",
+          "redText": "",
+          "yellowText": "",
+          "imgs": [
+            "https://morkovka21vek.github.io/forSchool/BreadMarket/photo_2024-10-22_19-06-33.jpg"
+          ]
+        },
+        {
+          "id": "chocolate-bars_2",
+          "text": "Батончик «Twix», 55 грамм",
+          "price": "50₽",
+          "redText": "",
+          "yellowText": "",
+          "imgs": [
+            "https://morkovka21vek.github.io/forSchool/BreadMarket/photo_2024-10-22_19-06-44.jpg"
+          ]
+        }
+      ]
+    }
+  ],
+  "navigationButtons": [
+    {
+      "text": "Сухарики",
+      "id": "crackers"
+    },
+    {
+      "text": "Мармелад",
+      "id": "marmelad"
+    },
+    {
+      "text": "Напитки",
+      "id": "drinks"
+    },
+    {
+      "text": "Шоколад",
+      "id": "chocolate"
+    },
+    {
+      "text": "Чупа-Чупс",
+      "id": "chupa-chups"
+    },
+    {
+      "text": "Шоколадные батончики",
+      "id": "chocolate-bars"
     }
   ]
 }

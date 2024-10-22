@@ -3,13 +3,14 @@ document.addEventListener("DOMContentLoaded", function () {
   let xhr = new XMLHttpRequest();
   xhr.open(
     "GET",
-    "https://gist.githubusercontent.com/Morkovka21Vek/e08485da0c9de11892ec5b9e2a7016bf/raw/2fffde5b7402950e08c882e3c1e0e2565dfd7132/testForSchoolBreadShop.json"
+    "https://gist.githubusercontent.com/Morkovka21Vek/e08485da0c9de11892ec5b9e2a7016bf/raw/ce4c41dc1a43ae8e3b3120a77062b0116b3c3c82/testForSchoolBreadShop.json"
   );
   xhr.send();
   xhr.onload = function () {
     if (xhr.status == 200) {
       var json = JSON.parse(xhr.response);
       console.log(json.categories);
+
       json.categories.forEach((category) => {
         let categoryDiv = document.createElement("div");
         categoryDiv.className = "category";
@@ -48,14 +49,21 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         container.append(categoryDiv);
+
+        let buttonsElem = document.querySelector(".buttons");
+        json.navigationButtons.forEach((button) => {
+          let buttonElement = document.createElement("button");
+          buttonElement.innerText = button.text;
+          buttonElement.title = button.id;
+          buttonElement.addEventListener("click", function () {
+            document.getElementById(this.title).scrollIntoView({
+              behavior: "smooth",
+            });
+          });
+
+          buttonsElem.append(buttonElement);
+        });
       });
-      // var commitDate = String(json.commit.commit.committer.date);
-      // console.log(commitDate);
-      // var splitCommitDate = commitDate.split('-');
-      // var rightCommitDate = String(splitCommitDate[2]).split('T')[0] +'.'+ String(splitCommitDate[1]) +'.'+ splitCommitDate[0];
-      // var LastCommitDateOut = myH.id + rightCommitDate;
-      // console.log(LastCommitDateOut);
-      // myH.innerHTML = LastCommitDateOut;
     }
   };
 
