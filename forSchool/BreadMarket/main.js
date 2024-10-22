@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (xhr.status == 200) {
       var json = JSON.parse(xhr.response);
       console.log(json.categories);
+      console.log(json.navigationButtons);
 
       json.categories.forEach((category) => {
         let categoryDiv = document.createElement("div");
