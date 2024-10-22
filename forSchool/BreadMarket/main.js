@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let xhr = new XMLHttpRequest();
   xhr.open(
     "GET",
-    "https://gist.githubusercontent.com/Morkovka21Vek/e08485da0c9de11892ec5b9e2a7016bf/raw/ce4c41dc1a43ae8e3b3120a77062b0116b3c3c82/testForSchoolBreadShop.json"
+    "https://raw.githubusercontent.com/Morkovka21Vek/Morkovka21Vek.github.io/refs/heads/main/forSchool/BreadMarket/testForSchoolBreadShop.json"
   );
   xhr.send();
   xhr.onload = function () {
