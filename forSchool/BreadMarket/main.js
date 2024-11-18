@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log(json.categories);
       console.log(json.navigationButtons);
 
+      let noConnectElem = document.querySelector(".noConnect");
+      noConnectElem.parentNode.removeChild(noConnectElem);
+
       json.categories.forEach((category) => {
         let categoryDiv = document.createElement("div");
         categoryDiv.className = "category";

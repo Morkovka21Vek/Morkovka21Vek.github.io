@@ -19,6 +19,7 @@
     />
     <link rel="stylesheet" href="style.css" />
     <script src="main.js"></script>
+    <script src="shoppingCart.js"></script>
   </head>
   <body>
     <div class="header">
@@ -26,9 +27,13 @@
         <img alt="Логотип" height="30" src="./imgs/noBackLogo.png" width="30" />
         <span>Хлебный магазин</span>
       </div>
-      <!-- <button class="ShoppingCartBut" title="Открыть корзину">
-        <img src="imgs/ShoppingCart.svg" alt="Корзина" class="ShoppingCartImg" />
-      </button> -->
+      <button class="ShoppingCartBut" title="Открыть корзину">
+        <img
+          src="imgs/ShoppingCart.svg"
+          alt="Корзина"
+          class="ShoppingCartImg"
+        />
+      </button>
     </div>
     <div class="container">
       <noscript>
@@ -37,9 +42,73 @@
           <a href="https://www.enable-javascript.com/ru/">Как его включить?</a>
         </h1>
       </noscript>
+      <div class="noConnect">
+        <img
+          src="imgs/load.svg"
+          alt="загрузка..."
+          style="
+            position: absolute;
+            right: 50%;
+            transform: translateX(50%);
+            height: 50%;
+            max-width: 100%;
+          "
+        />
+        <p
+          style="
+            background-color: darkviolet;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+          "
+        >
+          Ошибка подключения!
+        </p>
+      </div>
     </div>
     <div class="footer">
       <div class="buttons"></div>
+    </div>
+    <div class="ShoppingCartMenu">
+      <h2 style="text-align: center;">Корзина</h2>
+      <div class="overflowTable">
+      <table class="ShoppingCartTable">
+        <thead>
+          <tr>
+            <th>Наименование</th>
+            <th>Цена</th>
+            <th>Кол-во</th>
+            <th>Стоимость</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Мармелад</th>
+            <th>20Р</th>
+            <th>
+                <!-- <p>1шт.</p> -->
+                <!-- <input type="number" placeholder="Кол-во" min="0" step="1" name="quantity" value="1">
+                <div class="quantity-buttons">
+                <button class="quantity-buttons-up"><div class="triangle-up"></div></button>
+                <button class="quantity-buttons-down"><div class="triangle-down"></div></button>
+              </div> -->  
+              <div class="quantity-number-input">
+                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" ></button>
+                <input class="quantity" min="0" name="quantity" value="1" type="number">
+                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+              </div>
+            </th>
+            <th>20Р</th>
+          </tr>
+          <tr>
+            <th>Шоколад</th>
+            <th>120Р</th>
+            <th>10шт.</th>
+            <th>1200Р</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     </div>
     <!-- <script src="shoppingCart.js"></script> -->
   </body>
