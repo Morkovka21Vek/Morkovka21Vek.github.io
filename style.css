@@ -72,6 +72,7 @@ body::-webkit-scrollbar-thumb{
 		opacity: 1;
 	}
 	100% {
+		animation: octocat-wave 560ms ease-in-out;
 		top: 150px;
 		opacity: 1;
 	}
@@ -87,6 +88,7 @@ body::-webkit-scrollbar-thumb{
 
 .links a {
 	color: rgba(0, 0, 0, 0);
+	/* position: relative; */
 }
 
 .links i {
@@ -106,19 +108,19 @@ body::-webkit-scrollbar-thumb{
 	left: 50%;
 	position: absolute;
 	transform: translate(-50%,-50%);
-	height: 450px;
+	height: max(450px, 60%);
 	animation: renderConsole 3s ease;
 	background-color: black;
-	max-width: 950px;
-	width: calc(100vw - 20px);
+	max-width: 95vw;
+	width: max(700px, 60%);
 	transition: transform 0.5s, opacity 0.2s ease;
 }
 
 
 .crown {
 	background-color: rgb(24, 24, 24);
-	border-top-left-radius: 23px;
-	border-top-right-radius: 23px;
+	border-top-left-radius: 27px;
+	border-top-right-radius: 27px;
 	top: 0;
 	left: 0;
 	right: 0;
@@ -161,8 +163,9 @@ body::-webkit-scrollbar-thumb{
 	margin-top: 7px;
 	margin-right: 5px;
 	overflow: auto;
-	height: 393px;
+	height: inherit;
 	font-family: 'Courier New', Courier, monospace;
+	margin-bottom: 0;
 }
 .bottomConsol .consoleText {
 	margin-left: 10px;
@@ -365,17 +368,27 @@ body::-webkit-scrollbar-thumb{
 	height: 250px;	
 }
 .online-demo button {
+	/* tab-index: -1; */
 	border: 2px solid white;
 	border-radius: 25px;
 	background-color: transparent;
 	color: white;
-	height: 45px;
-	width: 200px;
+	/* height: 45px; */
+	max-width: 90vw;
+	padding: 12px;
 	font-size: 20px;
-	left: calc(50vw - 100px);
+	left: 50%;
+	transform: translateX(-50%);
 	position: relative;
 	margin-bottom: 10px;
 }
+/* .online-demo { */
+	/* position: relative;
+
+	left: 50%;
+	transform: translateX(-50%); */
+/* } */
+
 .selection-online-demos {
 	opacity: 1;
 	transition: 1s;

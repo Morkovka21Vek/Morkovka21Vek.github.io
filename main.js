@@ -8,7 +8,7 @@
     ['print(Morkovka21Vek.hello)', true],
     ["<br>Hi, I'm <u class='consoleLinkMorkovka21Vek'>Morkovka21Vek</u><br>>>>", false],
     ['print(Morkovka21Vek.data)', true],
-    ['<br>{<br>"platform": "Windows 10"<br>"country": "Russia/Moskow"<br>"time": "UTC +03:00"<br>}<br>', false]
+    ['<br>{<br>"platform": "Windows 10 (Ubuntu)"<br>"country": "Russia/Moskow"<br>"time": "UTC +03:00"<br>}<br>', false]
 ];
 
 new_result = '';
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (this.documentElement.clientWidth < 900) {
         let text_progects_block_phones = `margin-right: auto; max-width: 700px; width: calc(100vw - 25px);`;
-        let progects_img_phones = `left: 50%; width: calc(100vw - 30px); transform: translate(-50%, -2px); position: relative; border-top-left-radius: 0; border-top-right-radius: 0;`;
+        let progects_img_phones = `left: 50%; width: calc(100vw - 30px); transform: translate(-50%, -2px); position: relative;`;
         document.querySelectorAll(".progects-img").forEach(progects_img => {progects_img.style = progects_img_phones;});
         document.querySelectorAll(".timelinePoint").forEach(timelinePoint => {timelinePoint.parentNode.removeChild(timelinePoint);});
         document.querySelectorAll(".text-progects-block").forEach(text_progects_block => {text_progects_block.style = text_progects_block_phones;});
@@ -137,11 +137,13 @@ document.addEventListener('DOMContentLoaded', function() {
     lastCommitsH.forEach(myH => {
         let xhr = new XMLHttpRequest();
         xhr.open("GET", `https://api.github.com/repos/Morkovka21Vek/${myH.parentElement.parentElement.id}/branches/main`);
+        // xhr.open("GET", `https://api.github.com/repos/Morkovka21Vek/${myH.parentElement.parentElement.id}`);
         xhr.send();
         xhr.onload = function() {
             if (xhr.status == 200) {
                 var json = JSON.parse(xhr.response);
                 var commitDate = String(json.commit.commit.committer.date);
+                // var commitDate = String(json.updated_at);
                 console.log(commitDate);
                 var splitCommitDate = commitDate.split('-');
                 var rightCommitDate = String(splitCommitDate[2]).split('T')[0] +'.'+ String(splitCommitDate[1]) +'.'+ splitCommitDate[0];
