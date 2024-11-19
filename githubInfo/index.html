@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="../imgs/GITHUB2___IMG_20240303_161825_480.jpg" />
+    <link rel="icon" href="../imgs/site_icon.jpg" />
     <title>getInfo</title>
     <meta property="og:title" content="Morkovka21Vek" />
     <meta property="og:description" content="getInfo" />
     <meta
       property="og:image"
-      content="https://morkovka21vek.github.io/imgs/GITHUB___IMG_20240303_161825_480.png"
+      content="https://morkovka21vek.github.io/imgs/githubInfo_og.jpg"
     />
-    <meta property="og:url" content="https://morkovka21vek.github.io/getInfo" />
+    <meta property="og:url" content="https://morkovka21vek.github.io/githubInfo" />
   </head>
   <body>
     <h1>View statistics on username</h1>
@@ -31,7 +31,7 @@
         onchange="getPhoto();"
         oninput="getPhoto();"
       />
-      <input id="button" type="button" value="Find" onclick="doFunction();" />
+      <input id="button_Find" type="button" value="Find" onclick="find_stat();" />
     </div>
 
     <style>
@@ -51,6 +51,7 @@
         transform: translateX(-50%);
         width: 50px;
         height: 50px;
+        margin-bottom: 5px;
         border-radius: 30%;
       }
       .form {
@@ -68,7 +69,7 @@
         height: 40px;
         flex: 1;
       }
-      #button {
+      #button_Find {
         border-radius: 5px;
         width: 10%;
         min-width: 40px;
@@ -77,6 +78,7 @@
       }
       .homeButImg {
         width: 10%;
+        max-width: 100px;
         position: absolute;
         top: 0;
         right: 0;
@@ -86,6 +88,11 @@
       }
     </style>
     <script language="javascript" type="text/javascript">
+
+    textBox.addEventListener("keyup", function (event) {
+      if (event.keyCode == 13) {document.querySelector("#button_Find").click();}
+    });
+
       function getPhoto() {
         var fileInput = document.getElementById("input").value;
         // https://github.com/github.png?size=40
@@ -97,22 +104,22 @@
           "profilePhoto"
         ).parentNode.href = `https://github.com/${fileInput}`;
       }
-      function doFunction() {
+      function find_stat() {
         getPhoto();
-        var scrt_var = document.getElementById("input").value;
+        var src_var = document.getElementById("input").value;
         var strLink1 =
           "https://github-readme-stats.vercel.app/api/top-langs/?username=" +
-          scrt_var;
+          src_var;
         var strLink2 =
-          "https://github-profile-trophy.vercel.app/?username=" + scrt_var;
+          "https://github-profile-trophy.vercel.app/?username=" + src_var;
         var strLink3 =
-          "https://github-readme-streak-stats.herokuapp.com/?user=" + scrt_var;
+          "https://github-readme-streak-stats.herokuapp.com/?user=" + src_var;
         var strLink4 =
-          "https://github-readme-stats.vercel.app/api?username=" + scrt_var;
+          "https://github-readme-stats.vercel.app/api?username=" + src_var;
         var strLink5 =
           "https://github-readme-activity-graph.vercel.app/graph?username=" +
-          scrt_var;
-        var strLinkGithub = "https://github.com/" + scrt_var;
+          src_var;
+        var strLinkGithub = "https://github.com/" + src_var;
         document.getElementById("img1").setAttribute("src", strLink1);
         document.getElementById("img2").setAttribute("src", strLink2);
         document.getElementById("img3").setAttribute("src", strLink3);
