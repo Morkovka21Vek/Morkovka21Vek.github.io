@@ -17,17 +17,17 @@ let text = [
   ],
 ];
 
-new_result = "";
+let new_result = "";
 text.forEach((textElem) => {
   new_result += textElem[0];
 });
 
-is_typing = false;
-mode = "python";
+let is_typing = false;
+let mode = "python";
 
-text_new_result = [];
-prefix_new_result = [];
-canWriteStart = true;
+let text_new_result = [];
+let prefix_new_result = [];
+let canWriteStart = true;
 
 document.addEventListener("DOMContentLoaded", function () {
   if (this.documentElement.clientWidth < 900) {
@@ -56,36 +56,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let projectTrigger = document.querySelector(".MoveConsoleTrigger");
   let Console = document.querySelector(".console");
-  let bottomConsol = document.querySelector(".bottomConsol");
 
-  function checkTriggerprojectsVisibility() {
+  function checkTriggerProjectsVisibility() {
     let windowHeight = window.innerHeight;
 
     let projectTriggerPosition = projectTrigger.getBoundingClientRect().top;
     if (projectTriggerPosition < windowHeight - 100) {
-      // bottomConsol.style.visibility = "visible"
-      bottomConsol.style.transform = "translateY(0)";
-      bottomConsol.style.opacity = "1";
       Console.style.opacity = "0";
-      bottomConsol.style.bottom = "0";
       if (mode == "python") {
         prefix_new_result.push(">>>");
         text_new_result.push("quit()");
-        if (is_typing == false) {
+        if (!is_typing) {
           is_typing = true;
-          typeLineprojects();
+          typeLineProjectsCount();
         }
         mode = "cmd";
       }
     } else {
-      bottomConsol.style.transform = "translateY(-150%)";
-      bottomConsol.style.opacity = "0";
       Console.style.opacity = "1";
-      // bottomConsol.style.visibility = "hidden"
     }
   }
 
-  checkTriggerprojectsVisibility();
+  checkTriggerProjectsVisibility();
 
   const blocks = document.querySelectorAll(".projects-block");
 
@@ -103,9 +95,9 @@ document.addEventListener("DOMContentLoaded", function () {
           text_new_result.push(
             "git clone https://github.com/Morkovka21Vek/" + block.id + ".git"
           );
-          if (is_typing == false) {
+          if (!is_typing) {
             is_typing = true;
-            typeLineprojects();
+            typeLineProjectsCount();
           }
           block.className = block.className + " opened";
         }
@@ -115,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   checkBlocksVisibility();
 
-  const block = document.querySelector(".selection-online-demos");
+  const block = document.querySelector(".selection-pages");
   function checkDemoVisibility() {
     let windowHeight = window.innerHeight;
     if (block.className.indexOf("opened") == -1) {
@@ -126,9 +118,9 @@ document.addEventListener("DOMContentLoaded", function () {
         text_new_result.push(
           "git clone https://github.com/Morkovka21Vek/morkovka21vek.github.io.git"
         );
-        if (is_typing == false) {
+        if (!is_typing) {
           is_typing = true;
-          typeLineprojects();
+          typeLineProjectsCount();
         }
         block.className = block.className + " opened";
       }
@@ -139,14 +131,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("scroll", function () {
     checkBlocksVisibility();
-    checkTriggerprojectsVisibility();
+    checkTriggerProjectsVisibility();
     checkDemoVisibility();
   });
   let imgs = document.querySelectorAll(".projects-img");
-  var date = new Date();
+  let date = new Date();
   imgs.forEach((img) => {
-    // var Img_Link = img.src.format(String(date.getFullYear())+date.getMonth()+date.getDate()+date.getHours());
-    var Img_Link =
+    let Img_Link =
       "https://opengraph.githubassets.com/" +
       String(date.getFullYear()) +
       date.getMonth() +
@@ -165,22 +156,20 @@ document.addEventListener("DOMContentLoaded", function () {
       "GET",
       `https://api.github.com/repos/Morkovka21Vek/${myH.parentElement.parentElement.id}/branches/main`
     );
-    // xhr.open("GET", `https://api.github.com/repos/Morkovka21Vek/${myH.parentElement.parentElement.id}`);
     xhr.send();
     xhr.onload = function () {
       if (xhr.status == 200) {
-        var json = JSON.parse(xhr.response);
-        var commitDate = String(json.commit.commit.committer.date);
-        // var commitDate = String(json.updated_at);
+        let json = JSON.parse(xhr.response);
+        let commitDate = String(json.commit.commit.committer.date);
         console.log(commitDate);
-        var splitCommitDate = commitDate.split("-");
-        var rightCommitDate =
+        let splitCommitDate = commitDate.split("-");
+        let rightCommitDate =
           String(splitCommitDate[2]).split("T")[0] +
           "." +
           String(splitCommitDate[1]) +
           "." +
           splitCommitDate[0];
-        var LastCommitDateOut = myH.id + rightCommitDate;
+        let LastCommitDateOut = myH.id + rightCommitDate;
         console.log(LastCommitDateOut);
         myH.innerHTML = LastCommitDateOut;
       }
@@ -209,10 +198,11 @@ document.addEventListener("DOMContentLoaded", function () {
         result += text[line][0];
         line++;
       }
-      document.querySelectorAll(".consoleTextP").forEach((consolePtext) => {
-        consolePtext.innerHTML = result;
-        consolePtext.parentElement.scrollTop =
-          consolePtext.parentElement.scrollHeight;
+      document.querySelectorAll(".consoleText").forEach((consoleText) => {
+        let consoleText_p = consoleText.querySelector("p");
+        consoleText_p.innerHTML = result;
+        consoleText_p.parentElement.scrollTop =
+        consoleText_p.parentElement.scrollHeight;
       });
       if (line === text.length) {
         clearTimeout(interval);
@@ -225,28 +215,30 @@ document.addEventListener("DOMContentLoaded", function () {
     typeLine();
   }, 3500);
 
-  let typeLineprojectsCount = 0;
+  let typeLineProjectsCountCount = 0;
   let my_new_string = null;
-  function typeLineprojects() {
+  function typeLineProjectsCount() {
     let interval = setTimeout(() => {
       if (my_new_string == null) {
         my_new_string = text_new_result.shift();
         new_result += prefix_new_result.shift();
       }
-      new_result += my_new_string[typeLineprojectsCount];
-      document.querySelectorAll(".consoleTextP").forEach((consolePtext) => {
-        consolePtext.innerHTML = new_result;
-        consolePtext.parentElement.scrollTop =
-          consolePtext.parentElement.scrollHeight;
+      new_result += my_new_string[typeLineProjectsCountCount];
+      document.querySelectorAll(".consoleText").forEach((consoleText) => {
+        let consoleText_p = consoleText.querySelector("p");
+        consoleText_p.innerHTML = new_result;
+        consoleText_p.parentElement.scrollTop =
+        consoleText_p.parentElement.scrollHeight;
       });
-      typeLineprojectsCount++;
-      if (typeLineprojectsCount >= my_new_string.length) {
-        typeLineprojectsCount = 0;
+      typeLineProjectsCountCount++;
+      if (typeLineProjectsCountCount >= my_new_string.length) {
+        typeLineProjectsCountCount = 0;
         new_result += "<br>";
-        document.querySelectorAll(".consoleTextP").forEach((consolePtext) => {
-          consolePtext.innerHTML = new_result;
-          consolePtext.parentElement.scrollTop =
-            consolePtext.parentElement.scrollHeight;
+        document.querySelectorAll(".consoleText").forEach((consoleText) => {
+          let consoleText_p = consoleText.querySelector("p");
+          consoleText_p.innerHTML = new_result;
+          consoleText_p.parentElement.scrollTop =
+          consoleText_p.parentElement.scrollHeight;
         });
         if (text_new_result.length == 0) {
           clearTimeout(interval);
@@ -258,7 +250,7 @@ document.addEventListener("DOMContentLoaded", function () {
           new_result += prefix_new_result.shift();
         }
       }
-      typeLineprojects();
+      typeLineProjectsCountCount();
     }, 25);
   }
 });
