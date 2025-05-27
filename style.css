@@ -90,24 +90,24 @@ body::-webkit-scrollbar-thumb {
 }
 
 .links a {
-  color: rgba(0, 0, 0, 0);
+  color: transparent;
 }
 
-.links img {
-  color: white;
-}
 .links img:hover {
-  color: rgb(190, 190, 190);
+  width: 35px;
+  height: 35px;
+  filter: invert(84%) sepia(0%) saturate(0%) hue-rotate(263deg) brightness(97%)
+    contrast(78%);
 }
 
-.console {
+.terminal {
   border-radius: 27px;
   top: 50%;
   left: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
   height: max(450px, 60%);
-  animation: renderConsole 3s ease;
+  animation: renderterminal 3s ease;
   background-color: black;
   max-width: 95vw;
   width: max(700px, 60%);
@@ -124,7 +124,7 @@ body::-webkit-scrollbar-thumb {
   height: 50px;
 }
 
-@keyframes renderConsole {
+@keyframes renderterminal {
   50% {
     top: -100%;
   }
@@ -133,9 +133,9 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
-#console-crown-red,
-#console-crown-yellow,
-#console-crown-green {
+#terminal-crown-red,
+#terminal-crown-yellow,
+#terminal-crown-green {
   position: fixed;
   top: 20px;
   width: 15px;
@@ -143,21 +143,21 @@ body::-webkit-scrollbar-thumb {
   border-radius: 20px;
 }
 
-#console-crown-red {
+#terminal-crown-red {
   background-color: #ff5f5a;
   left: 18px;
 }
 
-#console-crown-yellow {
+#terminal-crown-yellow {
   background-color: #ffbe2e;
   left: 36px;
 }
 
-#console-crown-green {
+#terminal-crown-green {
   background-color: #2aca44;
   left: 54px;
 }
-.consoleText {
+.terminalText {
   margin-left: 10px;
   margin-top: 7px;
   margin-right: 5px;
@@ -170,21 +170,21 @@ body::-webkit-scrollbar-thumb {
   background-color: transparent;
 }
 
-.consoleText::-webkit-scrollbar {
+.terminalText::-webkit-scrollbar {
   background-color: rgb(5, 5, 5);
 }
-.consoleText::-webkit-scrollbar-thumb {
+.terminalText::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: rgb(70, 70, 70);
 }
 
-.consoleText p {
+.terminalText p {
   color: #12dd12;
   overflow: visible;
   white-space: nowrap;
   line-height: 24px;
 }
-#consoleLinkMorkovka21VekDiv {
+#terminalLinkMorkovka21VekDiv {
   border-radius: 20px;
   border: 30px solid rgba(0, 0, 0, 0);
   background-color: white;
@@ -216,8 +216,8 @@ body::-webkit-scrollbar-thumb {
   font-family: Geneva, "MS Sans Serif", sans-serif;
 }
 .projects-block {
-  margin-bottom: 50px;
-  opacity: 1;
+  opacity: 0;
+  transform: translateY(50px);
   transition: transform 0.5s, opacity 0.5s;
 }
 
@@ -277,10 +277,10 @@ body::-webkit-scrollbar-thumb {
   .projects-block:hover .projects-img {
     border: 2px solid rgb(236, 236, 236);
   }
-  .consoleLinkMorkovka21Vek:hover {
+  .terminalLinkMorkovka21Vek:hover {
     color: #0da10d;
   }
-  .online-demo button:hover {
+  .demo-pages button:hover {
     border: 2px solid rgb(212, 212, 212);
     color: rgb(212, 212, 212);
   }
@@ -313,15 +313,12 @@ body::-webkit-scrollbar-thumb {
   font-size: 30px;
   text-align: center;
 }
-.MoveConsoleTrigger {
-  height: 100px;
+.demo-pages {
+  left: 50%;
+  position: relative;
+  margin-bottom: 10px;
 }
-.online-demo {
-	left: 50%;
-	position: relative;
-	margin-bottom: 10px;
-}
-.online-demo button {
+.demo-pages button {
   border: 2px solid white;
   border-radius: 25px;
   background-color: transparent;
@@ -333,9 +330,16 @@ body::-webkit-scrollbar-thumb {
 }
 
 .selection-pages {
-  opacity: 1;
+  opacity: 0;
+  transform: translateY(50px);
   transition: 1s;
 }
+
+.opened-block {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .ProjectMiddleLine {
   background-color: #0da10d;
   border-radius: 5px;

@@ -26,14 +26,14 @@
   <body>
     <section class="startScreen">
       <a href="." class="changeLanguage">EN</a>
-      <div class="console">
+      <div class="terminal">
         <div class="crown">
-          <div id="console-crown-red"></div>
-          <div id="console-crown-yellow"></div>
-          <div id="console-crown-green"></div>
+          <div id="terminal-crown-red"></div>
+          <div id="terminal-crown-yellow"></div>
+          <div id="terminal-crown-green"></div>
         </div>
-        <div class="consoleText">
-          <p class="consoleTextP">
+        <div class="terminalText">
+          <p class="terminalTextP">
             <noscript> Пожалуйста, включите javascript </noscript>
           </p>
         </div>
@@ -104,7 +104,7 @@
     <section class="selection-projects">
       <div class="ProjectMiddleLine"></div>
       <h2>Мои проекты</h2>
-      <div class="MoveConsoleTrigger"></div>
+      <div class="MoveTerminalTrigger"></div>
       <div class="projects-block" id="empty">
         <div class="text-projects-block">
           <div class="timelinePoint"></div>
@@ -123,24 +123,24 @@
     </script>
     <section class="selection-pages">
       <h2>Онлайн Демо</h2>
-      <a class="online-demo" href="githubInfo"
+      <a class="demo-pages" href="githubInfo"
         ><button>Github акк. инф.</button></a
       ><br />
     </section>
     <div class="bottomConsol">
       <div class="crown">
-        <div id="console-crown-red"></div>
-        <div id="console-crown-yellow"></div>
-        <div id="console-crown-green"></div>
+        <div id="terminal-crown-red"></div>
+        <div id="terminal-crown-yellow"></div>
+        <div id="terminal-crown-green"></div>
       </div>
-      <div class="consoleText">
-        <p class="consoleTextP">
+      <div class="terminalText">
+        <p class="terminalTextP">
           <noscript> Пожалуйста, включите javascript </noscript>
         </p>
       </div>
     </div>
     <script type="text/javascript">
-      document.querySelectorAll(".consoleTextP").forEach((ctp) => {
+      document.querySelectorAll(".terminalTextP").forEach((ctp) => {
         ctp.innerHTML = "Morkovka21Vek>";
       });
       document.querySelector(".selection-pages").style = "opacity: 0;";
