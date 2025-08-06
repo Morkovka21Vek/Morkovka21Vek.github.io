@@ -20,8 +20,9 @@
         src="../imgs/house-floor-svgrepo-com.svg"
         title="home"
         class="homeButImg"
+        alt="home"
     /></a>
-    <a><img src="" alt="photo" id="profilePhoto" /></a>
+    <a><img src="" alt="profile" id="profilePhoto" /></a>
     <div class="form">
       <input
         type="text"
@@ -95,8 +96,6 @@
 
       function getPhoto() {
         var fileInput = document.getElementById("input").value;
-        // https://github.com/github.png?size=40
-        console.log(`https://github.com/${fileInput}.png?size=50`);
         document.getElementById(
           "profilePhoto"
         ).src = `https://github.com/${fileInput}.png?size=50`;
@@ -119,7 +118,6 @@
         var strLink5 =
           "https://github-readme-activity-graph.vercel.app/graph?username=" +
           src_var;
-        var strLinkGithub = "https://github.com/" + src_var;
         document.getElementById("img1").setAttribute("src", strLink1);
         document.getElementById("img2").setAttribute("src", strLink2);
         document.getElementById("img3").setAttribute("src", strLink3);
@@ -133,7 +131,7 @@
       <img src="" alt="trophy" id="img2" /><br />
       <img src="" alt="GitHub Streak" id="img3" /><br />
       <img src="" alt="Stats" id="img4" /><br />
-      <img src="" alt="Ashutosh's github activity graph" id="img5" /><br />
+      <img src="" alt="github activity graph" id="img5" /><br />
     </div>
   </body>
 </html>

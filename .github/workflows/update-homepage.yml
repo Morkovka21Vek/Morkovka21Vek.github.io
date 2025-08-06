@@ -1,0 +1,66 @@
+name: Update GitHub Pages Homepage
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # каждый день в 05:00 UTC
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Generate updated index.html
+        run: |
+          set -euo pipefail
+
+          USER="Morkovka21Vek"
+          DATE_HASH=$(date -u +"%Y-%m-%d" | sha256sum | cut -d ' ' -f1)
+          REPOS_JSON=$(mktemp)
+
+          curl -s "https://api.github.com/users/$USER/repos?per_page=100" > "$REPOS_JSON"
+
+          PROJECT_BLOCKS=""
+
+          while IFS= read -r repo; do
+            name=$(echo "$repo" | jq -r '.name')
+            desc=$(echo "$repo" | jq -r '.description // "No description"')
+            fork=$(echo "$repo" | jq -r '.fork')
+
+            if [[ "$fork" == "true" ]]; then
+              continue
+            fi
+
+            image_url="https://opengraph.githubassets.com/$DATE_HASH/$USER/$name"
+
+            PROJECT_BLOCKS+="
+                <div class=\"projects-block\">
+                  <div class=\"text-projects-block\">
+                    <div class=\"timelinePoint\"></div>
+                    <div class=\"timelineArrow\"></div>
+                    <h3>$name</h3>
+                    <h3>$desc</h3>
+                    <div class=\"timelineArrowAfter\"></div>
+                  </div>
+                  <img class=\"projects-img\" src=\"$image_url\">
+                </div>
+          "
+          done < <(jq -c '.[]' "$REPOS_JSON")
+
+          # Подставляем блоки в шаблон
+          sed "/<!-- Placeholder for Projects -->/{
+              r /dev/stdin
+              d
+          }" index_template.html <<< "$PROJECT_BLOCKS" > index.html
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@778341af668090896ca464160c2def5d1d1a3eb0
+        with:
+          commit_message: "chore(homepage): update project list"
+          add_options: '-u'
