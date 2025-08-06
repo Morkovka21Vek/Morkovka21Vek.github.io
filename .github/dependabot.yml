@@ -4,6 +4,6 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-      time: "7:00"
+      time: "07:00"
     labels:
       - "Security"
