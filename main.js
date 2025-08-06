@@ -7,11 +7,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Показываем/скрываем элементы в зависимости от языка
   document.querySelectorAll(".lang-en").forEach((el) => {
-    el.style.display = isRussian ? "none" : "block";
+    if (isRussian) {
+      el.style.display = "none";
+    }
   });
 
   document.querySelectorAll(".lang-ru").forEach((el) => {
-    el.style.display = isRussian ? "block" : "none";
+    if (!isRussian) {
+      el.style.display = "none";
+    }
   });
 
   const projectsBlocks = document.querySelectorAll(".projects-block");
