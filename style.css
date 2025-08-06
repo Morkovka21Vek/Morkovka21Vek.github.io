@@ -256,6 +256,8 @@ body::-webkit-scrollbar-thumb {
   text-align: center;
   color: var(--white-color);
   font-size: 43px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .projects-img {
