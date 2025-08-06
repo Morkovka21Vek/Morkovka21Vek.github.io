@@ -2,7 +2,7 @@ name: Update GitHub Pages Homepage
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # каждый день в 05:00 UTC
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 jobs:
@@ -42,7 +42,7 @@ jobs:
             image_url="https://opengraph.githubassets.com/$DATE_HASH/$USER/$name"
 
             PROJECT_BLOCKS+="
-                <div class=\"projects-block\">
+                <div class=\"projects-block\" id=\"$name\">
                   <div class=\"text-projects-block\">
                     <div class=\"timelinePoint\"></div>
                     <div class=\"timelineArrow\"></div>
