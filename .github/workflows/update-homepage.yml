@@ -23,7 +23,7 @@ jobs:
           set -euo pipefail
 
           USER="Morkovka21Vek"
-          DATE_HASH=$(date -u +"%Y-%m-%d" | sha256sum | cut -d ' ' -f1)
+          DATE_HASH=$(date -u | sha256sum | cut -d ' ' -f1)
           REPOS_JSON=$(mktemp)
 
           curl -s "https://api.github.com/users/$USER/repos?per_page=100" > "$REPOS_JSON"
