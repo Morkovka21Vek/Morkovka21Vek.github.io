@@ -50,7 +50,7 @@ jobs:
                     <h3>$desc</h3>
                     <div class=\"timelineArrowAfter\"></div>
                   </div>
-                  <img class=\"projects-img\" src=\"$image_url\">
+                  <img alt=\"$name img preview\" class=\"projects-img\" src=\"$image_url\">
                 </div>
           "
           done < <(jq -c '.[]' "$REPOS_JSON")
