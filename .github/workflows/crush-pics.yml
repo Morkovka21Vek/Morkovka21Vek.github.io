@@ -1,13 +1,7 @@
 name: Crush images
 on:
   pull_request:
-    branches:
-      - main
-    paths:
-      - '**.jpg'
-      - '**.jpeg'
-      - '**.png'
-      - '**.gif'
+  
 jobs:
   crush:
     runs-on: ubuntu-latest
