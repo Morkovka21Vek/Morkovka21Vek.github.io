@@ -6,47 +6,45 @@ export class Terminal {
     this.mode = "python";
   }
 
-  printLine(str) {
-    this.lineList.push([str, true]);
-    if (!this.typing) {
-      this.typeText();
-    }
+  printLine(content) {
+    this.lineList.push({ content, type: "normal" });
+    if (!this.typing) this.typeText();
   }
 
-  printLineForce(str) {
-    this.lineList.push([str, false]);
-    if (!this.typing) {
-      this.typeText();
-    }
+  printLineForce(content) {
+    this.lineList.push({ content, type: "force" });
+    if (!this.typing) this.typeText();
   }
 
   typeText() {
+    if (this.lineList.length === 0) {
+      this.typing = false;
+      return;
+    }
+
     this.typing = true;
-    let interval = setTimeout(() => {
-      if (this.lineList.length === 0) {
-        clearTimeout(interval);
-        this.typing = false;
-        return;
-      }
+    const { content, type } = this.lineList.shift();
 
-      if (this.lineList[0][0].length === 0) {
-        this.lineList.splice(0, 1);
-      } else {
-        let printStr = "";
-        if (this.lineList[0][1]) {
-          printStr = this.lineList[0][0][0];
-          this.lineList[0][0] = this.lineList[0][0].slice(1);
-        } else {
-          printStr = this.lineList[0][0];
-          this.lineList.splice(0, 1);
-        }
-
-        this.element.querySelector("p").innerHTML += printStr;
-        this.element.querySelector(".terminalText").scrollTop =
-          this.element.querySelector(".terminalText").scrollHeight;
-      }
-
+    if (type === "force") {
+      this.appendContent(content);
       this.typeText();
-    }, 25);
+    } else {
+      let index = 0;
+      const interval = setInterval(() => {
+        if (index < content.length) {
+          this.appendContent(content[index]);
+          index++;
+        } else {
+          clearInterval(interval);
+          this.typeText();
+        }
+      }, 25);
+    }
+  }
+
+  appendContent(content) {
+    const terminalText = this.element.querySelector(".terminalText");
+    terminalText.querySelector("p").innerHTML += content;
+    terminalText.scrollTop = terminalText.scrollHeight;
   }
 }

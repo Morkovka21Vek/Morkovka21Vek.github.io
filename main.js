@@ -1,15 +1,18 @@
 import { Terminal } from "./js/terminal.js";
 
 document.addEventListener("DOMContentLoaded", function () {
-  // let projectTrigger = document.querySelector(".MoveTerminalTrigger");
+  // Определяем язык браузера
+  const userLang = navigator.language || navigator.userLanguage;
+  const isRussian = userLang.startsWith("ru");
 
-  // function checkTriggerProjectsVisibility() {
-  //   let windowHeight = window.innerHeight;
+  // Показываем/скрываем элементы в зависимости от языка
+  document.querySelectorAll(".lang-en").forEach((el) => {
+    el.style.display = isRussian ? "none" : "block";
+  });
 
-  //   let projectTriggerPosition = projectTrigger.getBoundingClientRect().top;
-  //   if (projectTriggerPosition < windowHeight - 100) {
-
-  // }
+  document.querySelectorAll(".lang-ru").forEach((el) => {
+    el.style.display = isRussian ? "block" : "none";
+  });
 
   const projectsBlocks = document.querySelectorAll(".projects-block");
   const blocks = [
@@ -17,44 +20,62 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".selection-pages"),
   ];
 
+  const terminal = new Terminal(document.querySelector(".terminal"));
+
+  /**
+   * Проверяет видимость блоков на экране и обновляет их состояние.
+   */
   function checkBlocksVisibility() {
-    let windowHeight = window.innerHeight;
+    const windowHeight = window.innerHeight;
 
     blocks.forEach((block) => {
-      let blockPosition = block.getBoundingClientRect().top;
-      if (block.className.indexOf("opened-block") === -1) {
-        if (blockPosition < windowHeight) {
-          // - 350) {
-          terminal.printLineForce("morkovka21vek:~$ ");
-          terminal.printLine(
-            "git clone https://github.com/Morkovka21Vek/" + block.id + ".git"
-          );
-          terminal.printLineForce("<br>");
-          block.className = block.className + " opened-block";
-        }
+      const blockPosition = block.getBoundingClientRect().top;
+
+      if (!block.classList.contains("opened-block") && blockPosition < windowHeight) {
+        terminal.printLineForce("morkovka21vek:~$ ");
+        terminal.printLine(`git clone https://github.com/Morkovka21Vek/${block.id}.git`);
+        terminal.printLineForce("<br>");
+        block.classList.add("opened-block");
       }
     });
   }
 
-  window.addEventListener("scroll", function () {
-    checkBlocksVisibility();
-  });
+  /**
+   * Инициализирует терминал с приветственным сообщением.
+   */
+  function initializeTerminal() {
+    const terminalMessages = [
+      { type: "force", content: "morkovka21vek:~$ " },
+      { type: "normal", content: "python" },
+      { type: "force", content: "<br>Python 3.11.1 <br>>>> " },
+      { type: "normal", content: "from users import Morkovka21Vek" },
+      { type: "force", content: "<br>>>> " },
+      { type: "normal", content: "print(Morkovka21Vek.hello)" },
+      {
+        type: "force",
+        content: "<br>Hi, I'm <u class='terminalLinkMorkovka21Vek'>Morkovka21Vek</u><br>>>> ",
+      },
+      { type: "normal", content: "print(Morkovka21Vek.data)" },
+      {
+        type: "force",
+        content: '<br>{<br>"platform": "Ubuntu"<br>"country": "Russia/Moscow"<br>"time": "UTC +03:00"<br>}<br>',
+      },
+    ];
 
-  let terminal = new Terminal(document.querySelector(".terminal"));
+    terminalMessages.forEach((message, index) => {
+      setTimeout(() => {
+        if (message.type === "force") {
+          terminal.printLineForce(message.content);
+        } else {
+          terminal.printLine(message.content);
+        }
+      }, index * 500); // Задержка между сообщениями
+    });
+  }
 
-  setTimeout(() => {
-    terminal.printLineForce("morkovka21vek:~$ ");
-    terminal.printLine("python");
-    terminal.printLineForce("<br>Python 3.11.1 <br>>>> ");
-    terminal.printLine("from users import Morkovka21Vek");
-    terminal.printLineForce("<br>>>> ");
-    terminal.printLine("print(Morkovka21Vek.hello)");
-    terminal.printLineForce(
-      "<br>Hi, I'm <u class='terminalLinkMorkovka21Vek'>Morkovka21Vek</u><br>>>> "
-    );
-    terminal.printLine("print(Morkovka21Vek.data)");
-    terminal.printLineForce(
-      '<br>{<br>"platform": "Ubuntu (Windows 10)"<br>"country": "Russia/Moscow"<br>"time": "UTC +03:00"<br>}<br>'
-    );
-  }, 3500);
+  // Добавляем обработчик прокрутки для проверки видимости блоков
+  window.addEventListener("scroll", checkBlocksVisibility);
+
+  // Инициализируем терминал с задержкой
+  setTimeout(initializeTerminal, 3500);
 });

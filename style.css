@@ -1,12 +1,18 @@
+/* Root Variables */
 :root {
   --back-color: #292929;
+  --green-color: #0da10d;
+  --light-green-color: #12dd12;
+  --gray-color: rgb(206, 206, 206);
+  --white-color: #ffffff;
 }
 
+/* Global Styles */
 body {
   margin: 0;
   padding: 0;
   background-color: var(--back-color);
-  color: white;
+  color: var(--white-color);
   font-family: "MS Serif", "New York", serif;
 }
 
@@ -17,31 +23,44 @@ body::-webkit-scrollbar-thumb {
   border-radius: 8px;
   background-color: rgb(87, 87, 87);
 }
-
-.startScreen h5 {
-  color: green;
-  top: 0;
-  left: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  font-size: 200%;
-  animation: renderH5 2.5s ease;
-  font-family: Tahoma, Geneva, sans-serif;
+::-webkit-scrollbar-corner {
+  background-color: transparent;
 }
 
-.startScreen h1 {
-  color: white;
-  top: 70px;
-  left: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  font-size: 200%;
-  animation: renderH1 2.5s ease;
-  font-family: Tahoma, Geneva, sans-serif;
-}
+/* Start Screen */
 .startScreen {
   padding-bottom: 20px;
   height: calc(100vh - 120px);
+}
+
+.startScreen h5,
+.startScreen h1 {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Tahoma, Geneva, sans-serif;
+  animation: renderH5 2.5s ease;
+}
+
+.startScreen h5 {
+  color: green;
+  font-size: 200%;
+  top: 0;
+}
+
+.startScreen h1 {
+  color: var(--white-color);
+  font-size: 200%;
+  top: 70px;
+}
+
+@keyframes renderH5 {
+  35% {
+    top: 43%;
+  }
+  60% {
+    top: 0;
+  }
 }
 
 @keyframes renderH1 {
@@ -52,39 +71,12 @@ body::-webkit-scrollbar-thumb {
     top: 70px;
   }
 }
-@keyframes renderH5 {
-  35% {
-    top: 43%;
-  }
-  60% {
-    top: 0;
-  }
-}
 
-@keyframes renderIcons {
-  0% {
-    top: 50%;
-    opacity: 0;
-  }
-  30% {
-    top: 50%;
-    opacity: 0;
-  }
-  60% {
-    top: 50%;
-    opacity: 1;
-  }
-  100% {
-    animation: octocat-wave 560ms ease-in-out;
-    top: 150px;
-    opacity: 1;
-  }
-}
-
+/* Links */
 .links {
+  position: absolute;
   top: 150px;
   left: 50%;
-  position: absolute;
   transform: translate(-50%, -50%);
   animation: renderIcons 3s ease;
 }
@@ -100,17 +92,35 @@ body::-webkit-scrollbar-thumb {
     contrast(78%);
 }
 
+@keyframes renderIcons {
+  0%,
+  30% {
+    top: 50%;
+    opacity: 0;
+  }
+  60% {
+    top: 50%;
+    opacity: 1;
+  }
+  100% {
+    animation: octocat-wave 560ms ease-in-out;
+    top: 150px;
+    opacity: 1;
+  }
+}
+
+/* Terminal */
 .terminal {
-  border-radius: 27px;
+  position: absolute;
   top: 50%;
   left: 50%;
-  position: absolute;
   transform: translate(-50%, -50%);
   height: max(450px, 60%);
-  animation: renderterminal 3s ease;
-  background-color: black;
   max-width: 95vw;
   width: max(700px, 60%);
+  background-color: black;
+  border-radius: 27px;
+  animation: renderterminal 3s ease;
   transition: transform 0.5s, opacity 0.2s ease;
 }
 
@@ -118,19 +128,7 @@ body::-webkit-scrollbar-thumb {
   background-color: rgb(24, 24, 24);
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  top: 0;
-  left: 0;
-  right: 0;
   height: 50px;
-}
-
-@keyframes renderterminal {
-  50% {
-    top: -100%;
-  }
-  100% {
-    top: 50%;
-  }
 }
 
 #terminal-crown-red,
@@ -157,17 +155,19 @@ body::-webkit-scrollbar-thumb {
   background-color: #2aca44;
   left: 54px;
 }
+
 .terminalText {
-  margin-left: 10px;
-  margin-top: 7px;
-  margin-right: 5px;
+  margin: 7px 5px 0 10px;
+  height: calc(100% - 60px);
   overflow: auto;
-  height: inherit;
   font-family: "Courier New", Courier, monospace;
-  margin-bottom: 0;
 }
-::-webkit-scrollbar-corner {
-  background-color: transparent;
+
+.terminalText p {
+  color: var(--light-green-color);
+  overflow: visible;
+  white-space: nowrap;
+  line-height: 24px;
 }
 
 .terminalText::-webkit-scrollbar {
@@ -178,26 +178,19 @@ body::-webkit-scrollbar-thumb {
   background-color: rgb(70, 70, 70);
 }
 
-.terminalText p {
-  color: #12dd12;
-  overflow: visible;
-  white-space: nowrap;
-  line-height: 24px;
-}
-#terminalLinkMorkovka21VekDiv {
-  border-radius: 20px;
-  border: 30px solid rgba(0, 0, 0, 0);
-  background-color: white;
-  height: 50px;
-  width: 300px;
-  display: none;
-  position: absolute;
-  top: 128px;
+@keyframes renderterminal {
+  50% {
+    top: -100%;
+  }
+  100% {
+    top: 50%;
+  }
 }
 
+/* Projects Section */
 .selection-projects {
-  bottom: 40px;
   position: relative;
+  bottom: 40px;
 }
 
 .selection-projects h2 {
@@ -208,13 +201,6 @@ body::-webkit-scrollbar-thumb {
   font-family: Geneva, "MS Sans Serif", sans-serif;
 }
 
-.selection-pages h2 {
-  font-size: 40px;
-  color: #74d274;
-  text-align: center;
-  padding-bottom: 20px;
-  font-family: Geneva, "MS Sans Serif", sans-serif;
-}
 .projects-block {
   opacity: 0;
   transform: translateY(50px);
@@ -222,75 +208,56 @@ body::-webkit-scrollbar-thumb {
 }
 
 .text-projects-block {
-  border: 2px solid rgb(206, 206, 206);
+  border: 2px solid var(--gray-color);
   border-radius: 20px;
   width: calc(50vw - 25px);
   max-width: 500px;
-  height: auto;
   margin-right: calc(50% + 14px);
   margin-left: auto;
   position: relative;
   background-color: var(--back-color);
 }
-.timelineArrow {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  border: 15px solid transparent;
-  border-left-color: rgb(206, 206, 206);
-  left: 100%;
-  top: 50%;
-  margin-top: -15px;
-}
+
+.timelineArrow,
 .timelineArrowAfter {
   content: "";
   position: absolute;
   width: 0;
   height: 0;
+  top: 50%;
+  margin-top: -15px;
+}
+
+.timelineArrow {
+  border: 15px solid transparent;
+  border-left-color: var(--gray-color);
+  left: 100%;
+}
+
+.timelineArrowAfter {
   border: 13px solid transparent;
   border-left-color: var(--back-color);
   left: 100%;
-  top: 50%;
-  margin-top: -13px;
 }
 
 .timelinePoint {
   position: absolute;
   width: 30px;
   height: 30px;
-  background-color: #0da10d;
-  border: 5px solid #12dd12;
+  background-color: var(--green-color);
+  border: 5px solid var(--light-green-color);
   border-radius: 100%;
   left: 100%;
   top: 50%;
   margin-top: -20px;
 }
 
-@media (hover: hover) {
-  .projects-block:hover .text-projects-block {
-    border: 2px solid rgb(236, 236, 236);
-  }
-  .projects-block:hover .timelineArrow {
-    border-left-color: rgb(236, 236, 236);
-  }
-  .projects-block:hover .projects-img {
-    border: 2px solid rgb(236, 236, 236);
-  }
-  .terminalLinkMorkovka21Vek:hover {
-    color: #0da10d;
-  }
-  .demo-pages button:hover {
-    border: 2px solid rgb(212, 212, 212);
-    color: rgb(212, 212, 212);
-  }
-}
-
 .projects-block h3 {
   text-align: center;
-  color: white;
+  color: var(--white-color);
   font-size: 43px;
 }
+
 .projects-img {
   max-width: 500px;
   border-radius: 20px;
@@ -298,56 +265,69 @@ body::-webkit-scrollbar-thumb {
   left: calc(50% + 30px);
   top: 50%;
   transform: translateY(-50%);
-  border: 2px solid rgb(206, 206, 206);
+  border: 2px solid var(--gray-color);
   width: calc(50vw - 30px);
-  height: auto;
 }
 
-.projects-last-commit {
-  color: white;
-  font-size: 30px;
-  text-align: center;
-}
-.projects-created {
-  color: white;
-  font-size: 30px;
-  text-align: center;
-}
-.demo-pages {
-  left: 50%;
-  position: relative;
-  margin-bottom: 10px;
-}
-.demo-pages button {
-  border: 2px solid white;
-  border-radius: 25px;
-  background-color: transparent;
-  color: white;
-  max-width: 90vw;
-  padding: 12px;
-  font-size: 20px;
-  transform: translateX(-50%);
+@media (hover: hover) {
+  .projects-block:hover .text-projects-block {
+    border-color: rgb(236, 236, 236);
+  }
+  .projects-block:hover .timelineArrow {
+    border-left-color: rgb(236, 236, 236);
+  }
 }
 
+/* Online Demos Section */
 .selection-pages {
   opacity: 0;
   transform: translateY(50px);
   transition: 1s;
 }
 
+.selection-pages h2 {
+  font-size: 40px;
+  color: #74d274;
+  text-align: center;
+  padding-bottom: 20px;
+  font-family: Geneva, "MS Sans Serif", sans-serif;
+}
+
+.demo-pages {
+  position: relative;
+  left: 50%;
+  margin-bottom: 10px;
+}
+
+.demo-pages button {
+  border: 2px solid var(--white-color);
+  border-radius: 25px;
+  background-color: transparent;
+  color: var(--white-color);
+  max-width: 90vw;
+  padding: 12px;
+  font-size: 20px;
+  transform: translateX(-50%);
+}
+
+.demo-pages button:hover {
+  border-color: rgb(212, 212, 212);
+  color: rgb(212, 212, 212);
+}
+
+/* Utility Classes */
 .opened-block {
   opacity: 1;
   transform: translateY(0);
 }
 
 .ProjectMiddleLine {
-  background-color: #0da10d;
+  background-color: var(--green-color);
   border-radius: 5px;
   border: 2px solid #15cf15;
+  position: absolute;
   top: 50px;
   bottom: 0;
   width: 10px;
-  position: absolute;
   left: 50%;
-  right: 50%;
 }
