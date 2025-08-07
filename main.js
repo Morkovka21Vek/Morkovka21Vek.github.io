@@ -68,13 +68,11 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     terminalMessages.forEach((message, index) => {
-      setTimeout(() => {
-        if (message.type === "force") {
-          terminal.printLineForce(message.content);
-        } else {
-          terminal.printLine(message.content);
-        }
-      }, index * 500); // Задержка между сообщениями
+      if (message.type === "force") {
+        terminal.printLineForce(message.content);
+      } else {
+        terminal.printLine(message.content);
+      }
     });
   }
 
