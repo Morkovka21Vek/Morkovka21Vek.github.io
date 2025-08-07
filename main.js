@@ -1,4 +1,5 @@
 import { Terminal } from "./js/terminal.js";
+import "./js/projects-block.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   // Определяем язык браузера
