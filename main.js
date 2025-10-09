@@ -11,7 +11,13 @@ document.addEventListener("DOMContentLoaded", function () {
     for (const el of document.querySelectorAll(".lang-en")) {
       el.style.display = "none";
     }
+    for (const el of document.querySelectorAll(".lang-ru")) {
+      el.style.display = "block";
+    }
   } else {
+    for (const el of document.querySelectorAll(".lang-en")) {
+      el.style.display = "block";
+    }
     for (const el of document.querySelectorAll(".lang-ru")) {
       el.style.display = "none";
     }
