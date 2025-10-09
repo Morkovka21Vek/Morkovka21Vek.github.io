@@ -65,18 +65,18 @@
       const segments = document.querySelectorAll('.segment');
 
       // Тут грузим API
-      segments.forEach(seg => {
+      for (const seg of segments) {
         seg.firstElementChild.value = "#ffffff";
-      });
+      }
 
       function updColor(el) {
         el.style.background = el.firstElementChild.value;
       }
 
       function updateColors() {
-        segments.forEach(seg => {
+        for (const seg of segments) {
           seg.style.background = seg.firstElementChild.value;
-        });
+        }
       }
 
       updateColors();
