@@ -2,28 +2,28 @@ function adjustLayoutForScreenSize() {
   const isSmallScreen = window.innerWidth < 900;
 
   const textProjectsBlockPhones = `
-    margin-right: auto; 
-    max-width: 700px; 
+    margin-right: auto;
+    max-width: 700px;
     width: calc(100vw - 25px);
   `;
   const projectsImgPhones = `
-    left: 50%; 
-    width: calc(100vw - 30px); 
-    transform: translate(-50%, -2px); 
+    left: 50%;
+    width: calc(100vw - 30px);
+    transform: translate(-50%, -2px);
     position: relative;
   `;
 
-  document.querySelectorAll(".projects-img").forEach((img) => {
+  for (const img of document.querySelectorAll(".projects-img")) {
     img.style = isSmallScreen ? projectsImgPhones : "";
-  });
+  }
 
-  document.querySelectorAll(".text-projects-block").forEach((block) => {
+  for (const block of document.querySelectorAll(".text-projects-block")) {
     block.style = isSmallScreen ? textProjectsBlockPhones : "";
-  });
+  }
 
-  document.querySelectorAll(".timelinePoint, .timelineArrow, .timelineArrowAfter").forEach((element) => {
+  for (const element of document.querySelectorAll(".timelinePoint, .timelineArrow, .timelineArrowAfter")) {
     element.style = isSmallScreen ? "display: none" : "";
-  });
+  }
 }
 
 // Выполняем настройку при загрузке страницы

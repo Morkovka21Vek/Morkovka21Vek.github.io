@@ -333,3 +333,7 @@ body::-webkit-scrollbar-thumb {
   width: 10px;
   left: 50%;
 }
+
+.lang-ru {
+  display: none;
+}

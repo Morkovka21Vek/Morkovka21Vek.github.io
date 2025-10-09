@@ -7,17 +7,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const isRussian = userLang.startsWith("ru");
 
   // Показываем/скрываем элементы в зависимости от языка
-  document.querySelectorAll(".lang-en").forEach((el) => {
-    if (isRussian) {
+  if (isRussian) {
+    for (const el of document.querySelectorAll(".lang-en")) {
       el.style.display = "none";
     }
-  });
-
-  document.querySelectorAll(".lang-ru").forEach((el) => {
-    if (!isRussian) {
+    for (const el of document.querySelectorAll(".lang-ru")) {
+      el.style.display = "block";
+    }
+  } else {
+    for (const el of document.querySelectorAll(".lang-en")) {
+      el.style.display = "block";
+    }
+    for (const el of document.querySelectorAll(".lang-ru")) {
       el.style.display = "none";
     }
-  });
+  }
 
   const projectsBlocks = document.querySelectorAll(".projects-block");
   const blocks = [
@@ -33,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function checkBlocksVisibility() {
     const windowHeight = window.innerHeight;
 
-    blocks.forEach((block) => {
+    for (const block of blocks) {
       const blockPosition = block.getBoundingClientRect().top;
 
       if (!block.classList.contains("opened-block") && blockPosition < windowHeight) {
@@ -42,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         terminal.printLineForce("<br>");
         block.classList.add("opened-block");
       }
-    });
+    }
   }
 
   /**
@@ -67,13 +71,13 @@ document.addEventListener("DOMContentLoaded", function () {
       },
     ];
 
-    terminalMessages.forEach((message, index) => {
+    for (const message of terminalMessages) {
       if (message.type === "force") {
         terminal.printLineForce(message.content);
       } else {
         terminal.printLine(message.content);
       }
-    });
+    }
   }
 
   // Добавляем обработчик прокрутки для проверки видимости блоков
