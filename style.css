@@ -295,24 +295,24 @@ body::-webkit-scrollbar-thumb {
   font-family: Geneva, "MS Sans Serif", sans-serif;
 }
 
-.demo-pages {
+.selection-pages-link {
   position: relative;
   left: 50%;
   margin-bottom: 10px;
-}
-
-.demo-pages button {
+  display: inline-block;
   border: 2px solid var(--white-color);
   border-radius: 25px;
   background-color: transparent;
   color: var(--white-color);
+  text-align: center;
+  width: max(40%, 250px);
   max-width: 90vw;
   padding: 12px;
   font-size: 20px;
   transform: translateX(-50%);
 }
 
-.demo-pages button:hover {
+.selection-pages-link:hover {
   border-color: rgb(212, 212, 212);
   color: rgb(212, 212, 212);
 }

@@ -55,19 +55,19 @@ document.addEventListener("DOMContentLoaded", function () {
   function initializeTerminal() {
     const terminalMessages = [
       { type: "force", content: "morkovka21vek:~$ " },
-      { type: "normal", content: "python" },
+      { type: "normal", content: "python3" },
       { type: "force", content: "<br>Python 3.11.1 <br>>>> " },
       { type: "normal", content: "from users import Morkovka21Vek" },
       { type: "force", content: "<br>>>> " },
       { type: "normal", content: "print(Morkovka21Vek.hello)" },
       {
         type: "force",
-        content: "<br>Hi, I'm <u class='terminalLinkMorkovka21Vek'>Morkovka21Vek</u><br>>>> ",
+        content: "<br>Hi, I'm <u>Morkovka21Vek</u><br>>>> ",
       },
       { type: "normal", content: "print(Morkovka21Vek.data)" },
       {
         type: "force",
-        content: '<br>{<br>"platform": "Ubuntu"<br>"country": "Russia/Moscow"<br>"time": "UTC +03:00"<br>}<br>',
+        content: '<br>{<br><span style="white-space: pre;">\t"platform": "Ubuntu"<br>\t"country": "Russia/Moscow"<br>\t"time": "<u id=\'clock\'>Wait...</u> (UTC +3)"</span><br>}<br>',
       },
     ];
 

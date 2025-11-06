@@ -48,3 +48,18 @@ export class Terminal {
     terminalText.scrollTop = terminalText.scrollHeight;
   }
 }
+
+function updateClock() {
+  const now = new Date();
+  const utc3Time = new Date(now.getTime() + (3 * 60 + now.getTimezoneOffset()) * 60000);
+
+  const hours = String(utc3Time.getHours()).padStart(2, '0');
+  const minutes = String(utc3Time.getMinutes()).padStart(2, '0');
+
+  for (const el of document.querySelectorAll('#clock')) {
+    el.textContent = `${hours}:${minutes}`;
+  }
+}
+
+updateClock();
+setInterval(updateClock, 6000);
