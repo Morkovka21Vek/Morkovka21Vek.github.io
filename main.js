@@ -90,5 +90,5 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", checkBlocksVisibility);
 
   // Инициализируем терминал с задержкой
-  setTimeout(initializeTerminal, 3500);
+  setTimeout(initializeTerminal, 2700);
 });
