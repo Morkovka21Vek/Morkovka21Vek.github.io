@@ -14,11 +14,14 @@ jobs:
       contents: write
 
     steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          check-latest: true
+
       - name: Checkout
         uses: actions/checkout@v5
-
-      - name: Install npm v8
-        run: npm i -g npm@8
 
       - name: Prettify code
         uses: creyD/prettier_action@v4.6
