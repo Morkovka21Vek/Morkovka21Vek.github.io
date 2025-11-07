@@ -2,7 +2,7 @@ name: Update GitHub Pages Homepage
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 jobs:
@@ -76,4 +76,3 @@ jobs:
             git commit -m "chore(homepage): update project list" -a || true
             git push
           fi
-      

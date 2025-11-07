@@ -13,9 +13,9 @@ jobs:
     name: Spell Check with Typos
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Actions Repository
-      uses: actions/checkout@v5
-    - name: Spell Check Repo
-      uses: crate-ci/typos@v1.39.0
-      with:
-        config: .github/typos.toml
+      - name: Checkout Actions Repository
+        uses: actions/checkout@v5
+      - name: Spell Check Repo
+        uses: crate-ci/typos@v1.39.0
+        with:
+          config: .github/typos.toml
