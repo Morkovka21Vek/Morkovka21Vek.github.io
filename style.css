@@ -32,42 +32,35 @@ body::-webkit-scrollbar-thumb {
   height: calc(100vh - 120px);
 }
 
-.startScreen h5,
+.startScreen h2,
 .startScreen h1 {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  text-align: center;
   font-family: Tahoma, Geneva, sans-serif;
-  animation: renderH5 2.5s ease;
+  animation: renderIntroduction 2.5s ease;
+  z-index: 2;
 }
 
-.startScreen h5 {
+.startScreen h2 {
   color: green;
   font-size: 200%;
-  top: 0;
 }
 
 .startScreen h1 {
   color: var(--white-color);
   font-size: 200%;
-  top: 70px;
+  transform: translateY(-50%);
 }
 
-@keyframes renderH5 {
+@keyframes renderIntroduction {
+  0% {
+    top: -10%;
+  }
   35% {
     top: 43%;
   }
   60% {
     top: 0;
-  }
-}
-
-@keyframes renderH1 {
-  30% {
-    top: 50%;
-  }
-  60% {
-    top: 70px;
   }
 }
 
@@ -78,17 +71,20 @@ body::-webkit-scrollbar-thumb {
   left: 50%;
   transform: translate(-50%, -50%);
   animation: renderIcons 3s ease;
+  z-index: 3;
 }
 
 .links a {
   color: transparent;
 }
 
-.links img:hover {
-  width: 35px;
-  height: 35px;
-  filter: invert(84%) sepia(0%) saturate(0%) hue-rotate(263deg) brightness(97%)
-    contrast(78%);
+.links img, .links object {
+  border-radius: 50%;
+}
+
+.links img:hover, .links object:hover {
+  filter: brightness(80%);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
 @keyframes renderIcons {
@@ -102,9 +98,7 @@ body::-webkit-scrollbar-thumb {
     opacity: 1;
   }
   100% {
-    animation: octocat-wave 560ms ease-in-out;
     top: 150px;
-    opacity: 1;
   }
 }
 
