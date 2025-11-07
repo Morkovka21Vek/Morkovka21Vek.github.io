@@ -1,7 +1,7 @@
 /* Root Variables */
 :root {
   --back-color: #292929;
-  --green-color: #0FA90F;
+  --green-color: #0fa90f;
   --light-green-color: #12dd12;
   --gray-color: rgb(206, 206, 206);
   --white-color: #ffffff;
@@ -12,7 +12,7 @@ body {
   padding: 0;
   background-color: var(--back-color);
   color: var(--white-color);
-  font-family: Geneva,"MS Sans Serif",sans-serif
+  font-family: Geneva, "MS Sans Serif", sans-serif;
 }
 
 body::-webkit-scrollbar {
