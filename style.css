@@ -1,19 +1,18 @@
 /* Root Variables */
 :root {
   --back-color: #292929;
-  --green-color: #0da10d;
+  --green-color: #0FA90F;
   --light-green-color: #12dd12;
   --gray-color: rgb(206, 206, 206);
   --white-color: #ffffff;
 }
 
-/* Global Styles */
 body {
   margin: 0;
   padding: 0;
   background-color: var(--back-color);
   color: var(--white-color);
-  font-family: "MS Serif", "New York", serif;
+  font-family: Geneva,"MS Sans Serif",sans-serif
 }
 
 body::-webkit-scrollbar {
