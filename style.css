@@ -50,6 +50,7 @@ body::-webkit-scrollbar-thumb {
   color: var(--white-color);
   font-size: 200%;
   transform: translateY(-50%);
+  margin: 0;
 }
 
 @keyframes renderIntroduction {
@@ -66,12 +67,10 @@ body::-webkit-scrollbar-thumb {
 
 /* Links */
 .links {
-  position: absolute;
-  top: 150px;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
   animation: renderIcons 3s ease;
   z-index: 3;
+  text-align: center;
 }
 
 .links a {
@@ -98,7 +97,7 @@ body::-webkit-scrollbar-thumb {
     opacity: 1;
   }
   100% {
-    top: 150px;
+    top: 0;
   }
 }
 
@@ -113,6 +112,7 @@ body::-webkit-scrollbar-thumb {
   background-color: black;
   border-radius: 27px;
   animation: renderterminal 2s ease;
+  margin-top: 10px;
   transition:
     transform 0.5s,
     opacity 0.2s ease;
