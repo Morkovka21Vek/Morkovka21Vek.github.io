@@ -21,7 +21,9 @@ function adjustLayoutForScreenSize() {
     block.style = isSmallScreen ? textProjectsBlockPhones : "";
   }
 
-  for (const element of document.querySelectorAll(".timelinePoint, .timelineArrow, .timelineArrowAfter")) {
+  for (const element of document.querySelectorAll(
+    ".timelinePoint, .timelineArrow, .timelineArrowAfter",
+  )) {
     element.style = isSmallScreen ? "display: none" : "";
   }
 }

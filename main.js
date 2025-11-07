@@ -40,9 +40,14 @@ document.addEventListener("DOMContentLoaded", function () {
     for (const block of blocks) {
       const blockPosition = block.getBoundingClientRect().top;
 
-      if (!block.classList.contains("opened-block") && blockPosition < windowHeight) {
+      if (
+        !block.classList.contains("opened-block") &&
+        blockPosition < windowHeight
+      ) {
         terminal.printLineForce("morkovka21vek:~$ ");
-        terminal.printLine(`git clone https://github.com/Morkovka21Vek/${block.id}.git`);
+        terminal.printLine(
+          `git clone https://github.com/Morkovka21Vek/${block.id}.git`,
+        );
         terminal.printLineForce("<br>");
         block.classList.add("opened-block");
       }
@@ -67,7 +72,8 @@ document.addEventListener("DOMContentLoaded", function () {
       { type: "normal", content: "print(Morkovka21Vek.data)" },
       {
         type: "force",
-        content: '<br>{<br><span style="white-space: pre;">\t"platform": "Ubuntu"<br>\t"country": "Russia/Moscow"<br>\t"time": "<u id=\'clock\'>Wait...</u> (UTC +3)"</span><br>}<br>',
+        content:
+          '<br>{<br><span style="white-space: pre;">\t"platform": "Ubuntu"<br>\t"country": "Russia/Moscow"<br>\t"time": "<u id=\'clock\'>Wait...</u> (UTC +3)"</span><br>}<br>',
       },
     ];
 

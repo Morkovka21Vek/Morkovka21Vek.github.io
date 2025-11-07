@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
   <head>
     <title>8-ми сегментный индикатор</title>
@@ -20,13 +20,27 @@
       .segment.horizontal {
         width: calc(100% - 30px);
         height: 20px;
-        clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+        clip-path: polygon(
+          10% 0%,
+          90% 0%,
+          100% 50%,
+          90% 100%,
+          10% 100%,
+          0% 50%
+        );
         left: 15px;
       }
       .segment.vertical {
         width: 20px;
         height: calc(100% / 2 - 18px);
-        clip-path: polygon(0% 10%, 50% 0%, 100% 10%, 100% 90%, 50% 100%, 0% 90%);
+        clip-path: polygon(
+          0% 10%,
+          50% 0%,
+          100% 10%,
+          100% 90%,
+          50% 100%,
+          0% 90%
+        );
       }
       .segment {
         position: absolute;
@@ -39,30 +53,75 @@
         opacity: 0;
         cursor: pointer;
       }
-      .a { top: 0; }
-      .b { top: 15px; right: 0; }
-      .c { bottom: 15px; right: 0; }
-      .d { bottom: 0; }
-      .e { bottom: 15px; left:0; }
-      .f { top: 15px; left: 0; }
-      .g { top: calc(100% / 2); transform: translateY(-50%); }
-      .dp { bottom: -15px; right: -15px; width: 20px; height: 20px; border-radius: 50%; }
+      .a {
+        top: 0;
+      }
+      .b {
+        top: 15px;
+        right: 0;
+      }
+      .c {
+        bottom: 15px;
+        right: 0;
+      }
+      .d {
+        bottom: 0;
+      }
+      .e {
+        bottom: 15px;
+        left: 0;
+      }
+      .f {
+        top: 15px;
+        left: 0;
+      }
+      .g {
+        top: calc(100% / 2);
+        transform: translateY(-50%);
+      }
+      .dp {
+        bottom: -15px;
+        right: -15px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+      }
     </style>
   </head>
   <body>
-    <a href="https://github.com/Morkovka21Vek/Morkovka21Vek.github.io/blob/main/demo/8-segment_indicator.html" style="position: absolute; top:0; left:0; display:block;">Исходники</a>
+    <a
+      href="https://github.com/Morkovka21Vek/Morkovka21Vek.github.io/blob/main/demo/8-segment_indicator.html"
+      style="position: absolute; top: 0; left: 0; display: block"
+      >Исходники</a
+    >
     <div class="led-indicator">
-      <div oninput="updColor(this)" class="segment a horizontal"><input type="color"/></div>
-      <div oninput="updColor(this)" class="segment b vertical"><input type="color"/></div>
-      <div oninput="updColor(this)" class="segment c vertical"><input type="color"/></div>
-      <div oninput="updColor(this)" class="segment d horizontal"><input type="color"/></div>
-      <div oninput="updColor(this)" class="segment e vertical"><input type="color"/></div>
-      <div oninput="updColor(this)" class="segment f vertical"><input type="color"/></div>
-      <div oninput="updColor(this)" class="segment g horizontal"><input type="color"/></div>
-      <div oninput="updColor(this)" class="segment dp"><input type="color"/></div>
+      <div oninput="updColor(this)" class="segment a horizontal">
+        <input type="color" />
+      </div>
+      <div oninput="updColor(this)" class="segment b vertical">
+        <input type="color" />
+      </div>
+      <div oninput="updColor(this)" class="segment c vertical">
+        <input type="color" />
+      </div>
+      <div oninput="updColor(this)" class="segment d horizontal">
+        <input type="color" />
+      </div>
+      <div oninput="updColor(this)" class="segment e vertical">
+        <input type="color" />
+      </div>
+      <div oninput="updColor(this)" class="segment f vertical">
+        <input type="color" />
+      </div>
+      <div oninput="updColor(this)" class="segment g horizontal">
+        <input type="color" />
+      </div>
+      <div oninput="updColor(this)" class="segment dp">
+        <input type="color" />
+      </div>
     </div>
     <script>
-      const segments = document.querySelectorAll('.segment');
+      const segments = document.querySelectorAll(".segment");
 
       // Тут грузим API
       for (const seg of segments) {
