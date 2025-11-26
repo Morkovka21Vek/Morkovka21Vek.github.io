@@ -21,7 +21,7 @@ jobs:
           check-latest: true
 
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Prettify code
         uses: creyD/prettier_action@v4.6
