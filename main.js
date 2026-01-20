@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
       {
         type: "force",
         content:
-          '<br>{<br><span style="white-space: pre;">\t"platform": "Ubuntu"<br>\t"country": "Russia/Moscow"<br>\t"time": "<u id=\'clock\'>Wait...</u> (UTC +3)"</span><br>}<br>',
+          '<br>{<br><span style="white-space: pre;">\t"platform": "Arch, btw"<br>\t"location": "Russia/Moscow"<br>\t"time": "<u id=\'clock\'>Wait...</u> (UTC +3)"</span><br>}<br>',
       },
     ];
 
