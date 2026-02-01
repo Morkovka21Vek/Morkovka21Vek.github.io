@@ -54,6 +54,7 @@ jobs:
           "
           done < <(jq -c '.[]' "$REPOS_JSON")
 
+          mv index.html index_template.html
           sed "/<!-- Placeholder for Projects -->/{
               r /dev/stdin
               d
