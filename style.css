@@ -15,17 +15,6 @@ body {
   font-family: Geneva, "MS Sans Serif", sans-serif;
 }
 
-body::-webkit-scrollbar {
-  background-color: rgb(14, 14, 14);
-}
-body::-webkit-scrollbar-thumb {
-  border-radius: 8px;
-  background-color: rgb(87, 87, 87);
-}
-::-webkit-scrollbar-corner {
-  background-color: transparent;
-}
-
 /* Start Screen */
 .startScreen {
   padding-bottom: 20px;
@@ -148,8 +137,10 @@ body::-webkit-scrollbar-thumb {
 
 .terminalText {
   margin: 7px 5px 0 10px;
-  height: calc(100% - 60px);
+  height: max-content;
   overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   font-family: "Courier New", Courier, monospace;
 }
 
@@ -195,10 +186,6 @@ body::-webkit-scrollbar-thumb {
   background-color: rgb(70, 70, 70);
 }
 
-.lang-ru {
-  display: none;
-}
-
 .ls-out {
   display: flex;
   flex-wrap: wrap;
@@ -208,6 +195,7 @@ body::-webkit-scrollbar-thumb {
 .ls-out a {
   padding: 0.1em 0.3em;
   line-height: 1;
+  color: var(--light-green-color);
 }
 
 @media (hover: hover) {
