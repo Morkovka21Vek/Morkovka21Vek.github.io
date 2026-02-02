@@ -14,7 +14,8 @@ body {
   font-family: Geneva, "MS Sans Serif", sans-serif;
 }
 
-h2, h1 {
+h2,
+h1 {
   position: relative;
   text-align: center;
   font-family: Tahoma, Geneva, sans-serif;
