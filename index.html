@@ -5,22 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Morkovka21Vek's homepage</title>
-    <script type="module" src="main.js"></script>
 
-    <!-- Open Graph Metadata -->
     <meta property="og:title" content="Morkovka21Vek's homepage" />
     <meta property="og:description" content="Home Page" />
     <meta property="og:url" content="https://morkovka21vek.github.io/" />
   </head>
   <body>
-    <!-- Start Screen Section -->
     <section class="startScreen">
-      <!-- Introduction -->
       <h2 class="lang-en">Hi, I'm</h2>
       <h2 class="lang-ru">Привет, я</h2>
       <h1>Morkovka21Vek</h1>
 
-      <!-- Social Links -->
       <div class="links">
         <a href="https://github.com/Morkovka21Vek" aria-label="Github">
           <object
@@ -41,7 +36,6 @@
         </a>
       </div>
 
-      <!-- Terminal UI -->
       <div class="terminal">
         <div class="crown">
           <div style="background-color: #ff5f5a"></div>
@@ -49,27 +43,34 @@
           <div style="background-color: #2aca44"></div>
         </div>
         <div class="terminalText">
-          <p><noscript>Ooops, I'm written on JavaScript!</noscript></p>
+          <p style="--i:2">morkovka21vek:~$ <span class="typing" style="--chars:6">whoami</span></p>
+          <p style="--i:3">Morkovka21Vek</p>
+          <p style="--i:4">morkovka21vek:~$ <span class="typing" style="--chars:10">echo $info</span></p>
+          <p style="--i:5"> { "platform": "Arch, btw", "time": "<span id='time-display'>Wait...</span> (UTC +3)" } </p>
+          <p style="--i:6">morkovka21vek:~$ <span class="typing" style="--chars:17">firefox urls.html</span></p>
+          <p style="--i:9">morkovka21vek:~$ <span class="typing" style="--chars:2; --time:0.2s">ls</span></p>
+          <p style="--i:10" class="ls-out">
+          <!-- Placeholder for Projects -->
+          </p>
         </div>
       </div>
     </section>
-
-    <!-- Projects Section -->
-    <section class="selection-projects">
-      <div class="ProjectMiddleLine"></div>
-      <h2 class="lang-en">My Projects</h2>
-      <h2 class="lang-ru">Мои проекты</h2>
-
-      <!-- Placeholder for Projects -->
-    </section>
-    <!-- Online Demos Section -->
-    <section class="selection-pages" id="morkovka21vek.github.io">
-      <h2 class="lang-en">Tools</h2>
-      <h2 class="lang-ru">Инструменты</h2>
-      <a class="selection-pages-link" href="tools/githubinfo/">
-        <span class="lang-ru">Github аккаунт статистика</span>
-        <span class="lang-en">Github account stats</span>
-      </a>
-    </section>
+    <script>
+      if ((navigator.language || navigator.userLanguage).startsWith("ru")) {
+        for (const el of document.querySelectorAll(".lang-en")) {
+          el.style.display = "none";
+        }
+        for (const el of document.querySelectorAll(".lang-ru")) {
+          el.style.display = "block";
+        }
+      } else {
+        for (const el of document.querySelectorAll(".lang-en")) {
+          el.style.display = "block";
+        }
+        for (const el of document.querySelectorAll(".lang-ru")) {
+          el.style.display = "none";
+        }
+      }
+    </script>
   </body>
 </html>
