@@ -122,9 +122,10 @@ h1 {
   top: 20px;
   width: 15px;
   height: 15px;
-  border-radius: 20px;
+  border-radius: 50%;
   display: inline-block;
   left: 18px;
+  margin-right: 3px;
 }
 
 .terminalText {
@@ -168,14 +169,6 @@ h1 {
   to {
     width: calc(var(--chars) * 1ch);
   }
-}
-
-.terminalText::-webkit-scrollbar {
-  background-color: rgb(5, 5, 5);
-}
-.terminalText::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: rgb(70, 70, 70);
 }
 
 .ls-out {
