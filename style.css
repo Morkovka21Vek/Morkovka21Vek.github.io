@@ -37,38 +37,35 @@ body::-webkit-scrollbar-thumb {
   position: relative;
   text-align: center;
   font-family: Tahoma, Geneva, sans-serif;
-  animation: renderIntroduction 2.5s ease;
+  animation: headers 2s forwards;
+  animation-delay: 1.5s;
+  opacity: 0;
   z-index: 2;
 }
 
 .startScreen h2 {
   color: green;
   font-size: 200%;
+  height: 20px;
 }
 
 .startScreen h1 {
   color: var(--white-color);
   font-size: 200%;
-  transform: translateY(-50%);
   margin: 0;
 }
 
-@keyframes renderIntroduction {
-  0% {
-    top: -10%;
-  }
-  35% {
-    top: 43%;
-  }
-  60% {
-    top: 0;
-  }
+@keyframes headers {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Links */
 .links {
   position: relative;
-  animation: renderIcons 3s ease;
+  animation: renderLinks 3s forwards;
+  animation-delay: 2.8s;
+  opacity: 0;
   z-index: 3;
   text-align: center;
 }
@@ -88,22 +85,11 @@ body::-webkit-scrollbar-thumb {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
-@keyframes renderIcons {
-  0%,
-  30% {
-    top: 30vh;
-    opacity: 0;
-  }
-  60% {
-    top: 30vh;
-    opacity: 1;
-  }
-  100% {
-    top: 0;
-  }
+@keyframes renderLinks {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Terminal */
 .terminal {
   position: relative;
   left: 50%;
@@ -113,11 +99,22 @@ body::-webkit-scrollbar-thumb {
   width: max(700px, 60%);
   background-color: black;
   border-radius: 27px;
-  animation: renderterminal 2s ease;
   margin-top: 10px;
   transition:
     transform 0.5s,
     opacity 0.2s ease;
+  animation: macos-appear 1s cubic-bezier(0.5, 0.1, 0.25, 1) forwards;
+}
+
+@keyframes macos-appear {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.1);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
 }
 
 .crown {
@@ -148,7 +145,28 @@ body::-webkit-scrollbar-thumb {
   color: var(--light-green-color);
   overflow: visible;
   white-space: nowrap;
-  line-height: 24px;
+  line-height: 5px;
+  animation: visible 0.3s forwards;
+  animation-delay: calc(0.4s * var(--i) + 0.1s);
+  visibility: hidden;
+}
+
+@keyframes visible {
+  to { visibility: visible; }
+}
+
+.typing {
+  --time: 0.4s;
+  display: inline-block;
+  overflow-x: clip;
+  width: 0;
+  animation: typing var(--time) steps(var(--chars)) forwards;
+  animation-delay: calc(0.4s * var(--i) + 0.1s);
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: calc(var(--chars) * 1ch); }
 }
 
 .terminalText::-webkit-scrollbar {
@@ -159,166 +177,24 @@ body::-webkit-scrollbar-thumb {
   background-color: rgb(70, 70, 70);
 }
 
-@keyframes renderterminal {
-  0% {
-    top: -100vh;
-    opacity: 0;
-  }
-  100% {
-    top: 0;
-    opacity: 1;
-  }
-}
-
-/* Projects Section */
-.selection-projects {
-  position: relative;
-  bottom: 40px;
-}
-
-.selection-projects h2 {
-  font-size: 40px;
-  color: #74d274;
-  text-align: center;
-  padding-bottom: 100px;
-  font-family: Geneva, "MS Sans Serif", sans-serif;
-}
-
-.projects-block {
-  opacity: 0;
-  transform: translateY(50px);
-  transition:
-    transform 0.5s,
-    opacity 0.5s;
-}
-
-.text-projects-block {
-  border: 2px solid var(--gray-color);
-  border-radius: 20px;
-  width: calc(50vw - 25px);
-  max-width: 500px;
-  margin-right: calc(50% + 14px);
-  margin-left: auto;
-  position: relative;
-  background-color: var(--back-color);
-}
-
-.timelineArrow,
-.timelineArrowAfter {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  top: 50%;
-  margin-top: -15px;
-}
-
-.timelineArrow {
-  border: 15px solid transparent;
-  border-left-color: var(--gray-color);
-  left: 100%;
-}
-
-.timelineArrowAfter {
-  border: 13px solid transparent;
-  border-left-color: var(--back-color);
-  left: 100%;
-}
-
-.timelinePoint {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  background-color: var(--green-color);
-  border: 5px solid var(--light-green-color);
-  border-radius: 100%;
-  left: 100%;
-  top: 50%;
-  margin-top: -20px;
-}
-
-.projects-block h3 {
-  text-align: center;
-  color: var(--white-color);
-  font-size: 43px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.projects-img {
-  max-width: 500px;
-  border-radius: 20px;
-  position: absolute;
-  left: calc(50% + 30px);
-  top: 50%;
-  transform: translateY(-50%);
-  border: 2px solid var(--gray-color);
-  width: calc(50vw - 30px);
-}
-
-@media (hover: hover) {
-  .projects-block:hover .text-projects-block {
-    border-color: rgb(236, 236, 236);
-  }
-  .projects-block:hover .timelineArrow {
-    border-left-color: rgb(236, 236, 236);
-  }
-}
-
-/* Online Demos Section */
-.selection-pages {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: 1s;
-}
-
-.selection-pages h2 {
-  font-size: 40px;
-  color: #74d274;
-  text-align: center;
-  padding-bottom: 20px;
-  font-family: Geneva, "MS Sans Serif", sans-serif;
-}
-
-.selection-pages-link {
-  position: relative;
-  left: 50%;
-  margin-bottom: 10px;
-  display: inline-block;
-  border: 2px solid var(--white-color);
-  border-radius: 25px;
-  background-color: transparent;
-  color: var(--white-color);
-  text-align: center;
-  width: max(40%, 250px);
-  max-width: 90vw;
-  padding: 12px;
-  font-size: 20px;
-  transform: translateX(-50%);
-}
-
-.selection-pages-link:hover {
-  border-color: rgb(212, 212, 212);
-  color: rgb(212, 212, 212);
-}
-
-/* Utility Classes */
-.opened-block {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.ProjectMiddleLine {
-  background-color: var(--green-color);
-  border-radius: 5px;
-  border: 2px solid #15cf15;
-  position: absolute;
-  top: 50px;
-  bottom: 0;
-  width: 10px;
-  left: 50%;
-}
-
 .lang-ru {
   display: none;
+}
+
+.ls-out {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1ch 2ch;
+}
+
+.ls-out a {
+  padding: 0.1em 0.3em;
+  line-height: 1;
+}
+
+@media (hover:hover) {
+  .ls-out a:hover {
+    background-color: var(--light-green-color);
+    color: black;
+  }
 }

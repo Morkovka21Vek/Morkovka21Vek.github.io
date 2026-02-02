@@ -22,43 +22,29 @@ jobs:
           set -euo pipefail
 
           USER="Morkovka21Vek"
-          DATE_HASH=$(date -u | sha256sum | cut -d ' ' -f1)
           REPOS_JSON=$(mktemp)
 
           curl -s "https://api.github.com/users/$USER/repos?per_page=100" > "$REPOS_JSON"
 
-          PROJECT_BLOCKS=""
+          PROJECT_LIST=""
 
           while IFS= read -r repo; do
             name=$(echo "$repo" | jq -r '.name')
-            desc=$(echo "$repo" | jq -r '.description // "No description"')
             fork=$(echo "$repo" | jq -r '.fork')
+            html_url=$(echo "$repo" | jq -r '.html_url')
 
             if [[ "$fork" == "true" ]]; then
               continue
             fi
 
-            image_url="https://opengraph.githubassets.com/$DATE_HASH/$USER/$name"
-
-            PROJECT_BLOCKS+="
-                <div class=\"projects-block\" id=\"$name\">
-                  <div class=\"text-projects-block\">
-                    <div class=\"timelinePoint\"></div>
-                    <div class=\"timelineArrow\"></div>
-                    <h3>$name</h3>
-                    <h3>$desc</h3>
-                    <div class=\"timelineArrowAfter\"></div>
-                  </div>
-                  <img alt=\"$name img preview\" class=\"projects-img\" src=\"$image_url\">
-                </div>
-          "
+            PROJECT_LIST+="<a href=\"$html_url\">$name</a>"
           done < <(jq -c '.[]' "$REPOS_JSON")
 
           mv index.html index_template.html
           sed "/<!-- Placeholder for Projects -->/{
               r /dev/stdin
               d
-          }" index_template.html <<< "$PROJECT_BLOCKS" > index.html
+          }" index_template.html <<< "$PROJECT_LIST" > index.html
           rm index_template.html
 
       - name: HTML/CSS/JS Minifier
