@@ -47,13 +47,6 @@ jobs:
           }" index_template.html <<< "$PROJECT_LIST" > index.html
           rm index_template.html
 
-          mv onefile.html index_template.html
-          sed "/<!-- Placeholder for Projects -->/{
-              r /dev/stdin
-              d
-          }" index_template.html <<< "$PROJECT_LIST" > onefile.html
-          rm index_template.html
-
       - name: HTML/CSS/JS Minifier
         uses: docker://devatherock/minify-js:3.1.0
         with:
